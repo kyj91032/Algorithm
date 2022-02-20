@@ -5,4 +5,4 @@
 - Main Algorithm
   - Bruteforce
 - Sub Algorithm
-  - 
+  - divisor's sum
