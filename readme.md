@@ -8,5 +8,5 @@
 
 - Sub Algorithm
   - divisor
-    - accumualting dp?
+    - accumualting dp? or divide and conquer
   - prime number
