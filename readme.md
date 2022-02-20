@@ -1,5 +1,7 @@
 # Algorithm
 
-- data structure
-- main algorithm
-- sub algorithm
+- Data Structure
+  Stack
+- Main Algorithm
+  Bruteforce
+- Sub Algorithm
