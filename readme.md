@@ -5,6 +5,7 @@
 
 - Main Algorithm
   - Bruteforce
+  - Sort library
 
 - Sub Algorithm
   - divisor
