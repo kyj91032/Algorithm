@@ -5,5 +5,6 @@
 - Main Algorithm
   - Bruteforce
 - Sub Algorithm
-  - divisor - accumualting dp?
+  - divisor
+    - accumualting dp?
   - prime number
