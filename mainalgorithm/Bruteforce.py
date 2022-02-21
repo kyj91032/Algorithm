@@ -23,7 +23,7 @@ print(cnt)
 import sys
 input = sys.stdin.readline
 
-def check(arr): # '연속되는 숫자의 최댓값 확인하는 코드' 따로 떼서 함수로 만들기. 이렇게 쪼개서 생각할 수 있어야 함. 사실상 2차원 선형탐색.
+def check(arr): # '연속되는 숫자의 최댓값 확인하는 코드' 따로 떼서 함수로 만들기. 이렇게 쪼개서 생각할 수 있어야 함. 그리고 사실상 완전탐색 형태는 2차원 선형탐색.
     n = len(arr)
     max = 1
 
