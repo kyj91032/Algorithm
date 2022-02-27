@@ -2,7 +2,7 @@
 
 # 완전 탐색의 기본 동작 과정
 '''
-1. 처음부터 끝까지 모두 확인한다. (1 ~ 3차원 선형탐색, 최대 최소 선형탐색, 좌표 이동 경로 정의 후 탐색, 
+1. 처음부터 끝까지 모두 확인한다. (1 ~ 3차원 선형탐색, 선형 탐색 범위 축소, 최대 최소 선형탐색, 좌표 이동 경로 정의 후 탐색, 
 '''
 
 ''' 시간 완전탐색
@@ -87,6 +87,24 @@ while True:
         print(y)
         break
     y += 1
+'''
+
+
+''' 6064 카잉달력
+
+T = int(input())
+
+for _ in range(T):
+	M, N, x, y = map(int, input().split())
+	year = x
+	while 1:
+		if year % N == y % N: # 연도 year를 1부터 탐색할 필요 없이, year += M으로 탐색해도 된다.
+			print(year)
+			break
+		year += M
+		if year > M * N:
+			print(-1)
+			break
 '''
 
 
