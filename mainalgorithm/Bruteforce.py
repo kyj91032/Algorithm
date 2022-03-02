@@ -2,7 +2,7 @@
 
 # 완전 탐색의 기본 동작 과정
 '''
-1. 처음부터 끝까지 모두 확인한다. (1 ~ 3차원 선형탐색, 선형 탐색 범위 축소, 최대 최소 선형탐색, 좌표 이동 경로 정의 후 탐색, 
+1. 처음부터 끝까지 모두 확인(탐색)한다. (1 ~ 3차원 선형탐색, 선형탐색 범위축소, 최대최소 선형탐색, 좌표 이동경로 정의 후 탐색 or 시뮬레이션, 백트래킹, )
 '''
 
 ''' 시간 완전탐색
@@ -230,4 +230,25 @@ for i in range(n): # 좌표 완전 탐색 하면서 이동 경로 탐색
                 sum_n = 0
             result = max(result, sum_n)
 print(result)
+'''
+
+
+''' 15649 N과 M(1)
+
+n, m = list(map(int, input().split()))
+ 
+s = []
+ 
+def dfs(): # 백트래킹 함수
+    if len(s) == m: # 종료조건
+        print(' '.join(map(str, s)))
+        return
+    
+    for i in range(1, n + 1):
+        if i not in s:
+            s.append(i)
+            dfs() # 백트래킹 가지치기, 왔던 길로 돌아가 다시 탐색.
+            s.pop()
+ 
+dfs()
 '''
