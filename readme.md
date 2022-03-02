@@ -4,6 +4,7 @@
   - Stack
 
 - Main Algorithm
+  - Iteraion and Recursive
   - Bruteforce
   - Sort library
 
