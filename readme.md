@@ -10,5 +10,5 @@
 
 - Sub Algorithm
   - divisor
-    - accumualting dp? or divide and conquer?
+    - accumulating dp? or divide and conquer?
   - prime number
