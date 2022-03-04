@@ -4,9 +4,10 @@
   - Stack
 
 - Main Algorithm
+  - Sort library
   - Iteraion and Recursive
   - Bruteforce
-  - Sort library
+  - Depth-Fisrt Search
 
 - Sub Algorithm
   - divisor
