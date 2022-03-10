@@ -49,10 +49,10 @@ for i in range(N):
 	graph.append(list(map(int, input()))) # **map은 iteralbe의 요소마다 지정된 함수를 적용시켜준다. list(string)은 각 문자가 요소가 되는 리스트로 변환된다.
 
 def dfs(x, y):
-	if x <= -1 or x >= n or y <= -1 or y >= m: # 예외 종료 조건
+	if x <= -1 or x >= n or y <= -1 or y >= m: # 종료 조건 1
 		return False
 
-	if graph[x][y] == 0: # 현재 노드의 방문 여부가 재귀 조건: 방문 안 했으면 재귀 호출, 방문 했으면 함수 종료.
+	if graph[x][y] == 0: # 현재 노드의 방문 여부가 재귀(종료) 조건 2: 방문 안 했으면 재귀 호출, 방문 했으면 함수 종료.
 		graph[x][y] = 1
 		dfs(x - 1, y)
 		dfs(x, y - 1)
