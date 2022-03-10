@@ -8,6 +8,7 @@
   - Iteraion and Recursive
   - Bruteforce
   - Depth-Fisrt Search
+  - Backtracking
 
 - Sub Algorithm
   - divisor
