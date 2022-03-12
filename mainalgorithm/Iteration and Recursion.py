@@ -33,22 +33,3 @@ def factorial_recursive(n):
   return n * factorial_recursive(n - 1)
 '''
 
-
-''' 완전 탐색의 재귀적 구현 recursive bruteforce
-
-arr = []
-
-def rec(depth): # 깊이를 매개변수로 받기
-  if depth == 3: # 종료 조건
-    for i in range(3):
-      print(arr[i], end = ' ')
-    print()
-    return
-  
-  for i in range(6): # 완전 탐색
-    arr[depth] = i
-    rec(depth + 1) # 재귀 호출
-
-rec(0)
-
-'''
