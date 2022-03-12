@@ -48,20 +48,58 @@ rec(1)
 '''
 
 
-''' n과 m (3)
+''' n과 m (3) (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
 
 n, m = list(map(int, input().split()))
-
+ 
 s = []
 
-def rec(start):
-    if len(s) == m:
+def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
+    if len(s) == m: # 종료 조건
         print(' '.join(map(str, s)))
         return
     
-    for i in range(start, n + 1):    
+    for i in range(1, n + 1): # 완전 탐색
+            s.append(i)
+            rec() # 재귀 호출
+            s.pop()
+rec()
+'''
+
+
+''' n과 m (4)
+
+n, m = list(map(int, input().split()))
+ 
+s = []
+
+def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
+    if len(s) == m: # 종료 조건
+        print(' '.join(map(str, s)))
+        return
+    
+    for i in range(start, n + 1): # 완전 탐색
         s.append(i)
-        rec(i + 1)
+        rec(i) # 재귀 호출
+        s.pop()
+rec(1)
+'''
+
+
+''' n과 m (5)
+
+n, m = list(map(int, input().split()))
+ 
+s = []
+
+def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
+    if len(s) == m: # 종료 조건
+        print(' '.join(map(str, s)))
+        return
+    
+    for i in range(start, n + 1): # 완전 탐색
+        s.append(i)
+        rec(i) # 재귀 호출
         s.pop()
 rec(1)
 '''
