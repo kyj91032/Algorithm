@@ -44,10 +44,24 @@ def rec(start):
             s.append(i)
             rec(i + 1)
             s.pop()
-dfs(1)
+rec(1)
 '''
 
 
-'''
+''' n과 m (3)
 
+n, m = list(map(int, input().split()))
+
+s = []
+
+def rec(start):
+    if len(s) == m:
+        print(' '.join(map(str, s)))
+        return
+    
+    for i in range(start, n + 1):    
+        s.append(i)
+        rec(i + 1)
+        s.pop()
+rec(1)
 '''
