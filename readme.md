@@ -7,9 +7,9 @@
   - Bruteforce
   - Iteraion and Recursive
   - Backtracking
-  - 
+  -
   - Depth-Fisrt Search
-  - 
+  -
   - Sort library
 
 - Sub Algorithm
