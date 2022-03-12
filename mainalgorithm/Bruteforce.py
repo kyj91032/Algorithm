@@ -233,3 +233,21 @@ for i in range(n): # 좌표 완전 탐색 하면서 이동 경로 탐색
 print(result)
 '''
 
+
+''' 완전 탐색의 재귀적 구현 recursive bruteforce
+
+n, m = list(map(int, input().split()))
+ 
+s = []
+
+def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
+    if len(s) == m: # 종료 조건
+        print(' '.join(map(str, s)))
+        return
+    
+    for i in range(1, n + 1): # 완전 탐색
+            s.append(i)
+            rec() # 재귀 호출
+            s.pop()
+rec()
+'''
