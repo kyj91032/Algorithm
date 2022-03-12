@@ -6,8 +6,8 @@
 - Main Algorithm
   - Bruteforce
   - Iteraion and Recursive
-  - Depth-Fisrt Search
   - Backtracking
+  - Depth-Fisrt Search
   - Sort library
 
 - Sub Algorithm
