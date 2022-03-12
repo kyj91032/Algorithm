@@ -34,12 +34,12 @@ n, m = list(map(int, input().split()))
 
 s = []
 
-def rec(start): 
+def rec(start):
     if len(s) == m:
         print(' '.join(map(str, s)))
         return
     
-    for i in range(start, n + 1):
+    for i in range(start, n + 1): # 오름차순 조건을 고려하여 현재 숫자(start) 보다 높게 가지치기
         if i not in s:
             s.append(i)
             rec(i + 1)
