@@ -6,7 +6,7 @@
 2. 종료 조건(= 반복 조건)을 설정하여 반복하는데, for은 횟수 조건(range), while은 상황 조건(if-break)이다.
 '''
 
-''' factorial iteration
+''' 팩토리얼 반복 구현
 
 result = 1
 for i in range(1, n + 1):
@@ -25,10 +25,30 @@ print(result)
 따라서 스택 자료구조를 활용해야 하는 상당수의 알고리즘은 재귀 함수를 이용해서 간편하게 구현될 수 있다. ex) DFS
 '''
 
-''' factorial recursive
+''' 팩토리얼 재귀 구현
 
 def factorial_recursive(n):
   if n <= 1:
     return 1
   return n * factorial_recursive(n - 1)
+'''
+
+
+''' 완전 탐색의 재귀적 구현 recursive bruteforce
+
+arr = []
+
+def rec(depth): # 깊이를 매개변수로 받기
+  if depth == 3: # 종료 조건
+    for i in range(3):
+      print(arr[i], end = ' ')
+    print()
+    return
+  
+  for i in range(6): # 완전 탐색
+    arr[depth] = i
+    rec(depth + 1) # 재귀 호출
+
+rec(0)
+
 '''
