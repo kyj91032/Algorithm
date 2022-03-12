@@ -69,22 +69,3 @@ for i in range(n):
 print(result)
 '''
 
-
-''' n과 m (1)
-
-n, m = list(map(int, input().split()))
- 
-s = [] # 재귀 조건을 설정하는 과정에서 스택이 필요해서 정의.
-
-def rec(): # BF, 반복 안되서 재귀로 접근.
-    if len(s) == m: # 재귀 조건 1. (m의 값 조건 고려)
-        print(' '.join(map(str, s)))
-        return
-    
-    for i in range(1, n + 1):
-        if i not in s: # i가 s에 없으면, 재귀 조건 2. (중복 안되는 조건 고려) 
-            s.append(i) # push
-            rec() # 재귀 호출
-            s.pop() # 종료 호출 시 pop하고 다음 i로 반복을 통해 가지치기 구현
-rec()
-'''
