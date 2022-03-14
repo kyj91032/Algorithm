@@ -4,7 +4,8 @@
 # 백트래킹의 기본 동작 과정
 '''
 1. 재귀함수를 정의한다.
-2. 재귀 조건을 설정하여 반복하는데, 여기서 가지치기를 구현해야 한다.
+2. 기본적으로 BF를 재귀적으로 수행하려 할 때 필요한 것이 깊이에 따른 종료 조건이고,
+3. 여기서 백트래킹을 하려면 완전 탐색 중에 다른 재귀 조건을 추가하여 가지치기를 구현해야한다.
 '''
 
 ''' n과 m (1)
@@ -14,7 +15,7 @@ n, m = list(map(int, input().split()))
 s = []
 
 def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
-    if len(s) == m: # 종료 조건
+    if len(s) == m: # 필수 종료 조건
         print(' '.join(map(str, s)))
         return
     
@@ -51,7 +52,7 @@ rec(1)
 ''' n과 m (3) (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
 
 n, m = list(map(int, input().split()))
- 
+
 s = []
 
 def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
@@ -184,7 +185,7 @@ rec(0)
 
 def dfs(x, y, cnt, sum_value): # 재귀함수 정의
     dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)] # 탐색에 이용할 방향 정의
-    if cnt == k: # 종료 조건
+    if cnt == k: # 깊이에 따른 종료 조건
         global max_value
         max_value = max(max_value, sum_value) # 최댓값 갱신
         return
