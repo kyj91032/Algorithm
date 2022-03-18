@@ -4,9 +4,10 @@
   - Stack
 
 - Main Algorithm
-  - Bruteforce
   - Iteraion and Recursive
+  - Bruteforce
   - Backtracking
+  - Dynamic programming
   - Depth-Fisrt Search
   - Sort library
 
