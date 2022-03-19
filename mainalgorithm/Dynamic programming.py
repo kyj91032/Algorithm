@@ -131,3 +131,23 @@ for i in range(3, N + 1):
 
 print(d[N])
 '''
+
+
+''' 14501 퇴사 ?? 이걸 어케 생각해.. 재귀 bf가 현실적
+
+n = int(input())
+T = [0]
+P = [0]
+for _ in range(n):
+    a,b = map(int,input().split())
+    T.append(a)
+    P.append(b)
+
+d = [0 for _ in range(n + 1)] # 1. i번째 날까지 최대 상담 보수 d[i]
+			      # 2. 초기값 d[0] = 0, ..
+for i in range(1, n + 1):
+    d[i] = max(d[i], d[i - 1]) # 마지막에 일수 초과할 때 테이블 완성하기 위한 코드
+    if i + T[i] - 1 <= n: # 일수 초과하지 않을 때
+        dp[i + T[i] - 1] = max(dp[i + T[i] - 1], dp[i - 1] + P[i]) # 3. 점화식: d[오늘 꺼 상담 범위까지의 d[] 값] = max(
+print(dp[-1])
+'''
