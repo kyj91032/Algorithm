@@ -2,6 +2,7 @@
 
 - Data Structure
   - Stack
+  - Queue
 
 - Main Algorithm
   - Iteraion and Recursive
