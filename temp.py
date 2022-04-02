@@ -17,39 +17,84 @@ while 1:
 
 T = int(input())
 
+def dfs(v):
+	global tmp
+	global sl
+	if not visited[v]:
+		visited[v] = True
+		tmp += fi[v - 1]
+		for i in graph[v]:
+			dfs(i)
+	sl.append((tmp, v))
+	tmp -= fi[v - 1]
+
+def dfs2(v):
+	global m
+	if v == 0:
+		return
+	if visited2[v] == True:
+		return
+	visited2[v] = True
+	m = max(m, fi[v - 1])
+	dfs2(pi[v - 1])
 
 for i in range(1, T + 1):
 	print("Case #%d: " % i, end = '')
 	
 	n = int(input())
 	
-	graph = [0]
+	fi = list(map(int, input().split()))
+	pi = list(map(int, input().split()))
 	
-	fl = list(map(int, input().split()))
-	pl = list(map(int, input().split()))
-	
-	for j in range(1, n + 1):
-		graph.append((pl[i - 1], fl[i - 1]))
+	graph = [[] for _ in range(n + 1)]
 	
 	visited = [False] * (n + 1)
+	visited2 = [False] * (n + 1)
 	
-	itr = []
-	for j in range(n + 1):
-		if j not in pl:
-			itr.append(j)
-	
-	sum = []
+	for a in range(n + 1):
+		for b in range(n):
+			if pi[b] == a:
+				graph[a].append(b + 1)
 	
 	tmp = 0
+	sl = []
 	
-	def dfs(v):
-		visited[v] = True
-		
-		if v not in pl:
-			sum.append(tmp)
-		for k in range(n):
-			if pl[k] == v:
-				if not visited[k + 1]:
-					dfs(k + 1)
-		
+	ini = []
+	for j in range(n + 1):
+		if len(graph[j]) == 0:
+			ini.append(j)
 	
+	p0 = []
+	for j in range(n):
+		if pi[j] == 0:
+			p0.append(j + 1)
+	
+	result = 0
+	
+	for q in p0:
+		
+		dfs(q)
+
+		isl = []
+		l = len(sl)
+		for j in range(l):
+			if sl[j][1] in ini:
+				isl.append(sl[j])
+		
+		isls = sorted(isl, key = lambda x : x[0])
+		
+		islsi = []
+		for j in range(len(isls)):
+			islsi.append(isls[j][1])	
+
+		m = 0
+		M = 0
+	
+		for u in islsi:
+			m = 0
+			dfs2(u)
+			M += m
+	
+		result += M
+		
+	print(result)
