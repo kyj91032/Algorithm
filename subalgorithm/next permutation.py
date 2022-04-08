@@ -8,7 +8,8 @@
 4. a + 1 에서부터 끝까지를 오름차순 정렬
 '''
 
-'''
+
+''' 10972 다음 순열
 
 import sys
 input = sys.stdin.readline
@@ -24,6 +25,28 @@ for i in range(n - 1, 0, -1):
     if s[x] < s[i]:
         s[x], s[i] = s[i], s[x]
         s = s[:x + 1] + sorted(s[x + 1:])
+        print(*s)
+        exit()
+print(-1)
+'''
+
+''' 10973 이전 순열 (반대로)
+
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+s = list(map(int, input().split()))
+
+x = 0
+for i in range(n - 1, 0, -1):
+    if s[i - 1] > s[i]:
+        x = i - 1
+        break
+for i in range(n - 1, 0, -1):
+    if s[x] > s[i]:
+        s[x], s[i] = s[i], s[x]
+        s = s[:x + 1] + sorted(s[x + 1:], reverse = True)
         print(*s)
         exit()
 print(-1)
