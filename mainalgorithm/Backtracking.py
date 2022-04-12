@@ -8,13 +8,13 @@
 3. 여기서 백트래킹을 하려면 완전 탐색 중에 다른 재귀 조건을 추가하여 가지치기를 구현해야한다.
 '''
 
-''' n과 m (1)
+''' n과 m (1) - 1부터 n까지 중에 순열
 
 n, m = list(map(int, input().split()))
  
 s = []
 
-def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
+def rec(): # bruteforce 인데 반복으로 안돼서 재귀로 접근.
     if len(s) == m: # 필수 종료 조건
         print(' '.join(map(str, s)))
         return
@@ -29,7 +29,7 @@ rec()
 '''
 
 
-''' n과 m (2)
+''' n과 m (2) - 1부터 n까지 중에 오름차순 순열
 
 n, m = list(map(int, input().split()))
 
@@ -49,7 +49,7 @@ rec(1)
 '''
 
 
-''' n과 m (3) (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
+''' n과 m (3) - 1부터 n까지 중에 중복 순열 (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
 
 n, m = list(map(int, input().split()))
 
@@ -61,14 +61,14 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
         return
     
     for i in range(1, n + 1): # 완전 탐색
-            s.append(i)
-            rec() # 재귀 호출
-            s.pop()
+        s.append(i)
+        rec() # 재귀 호출
+        s.pop()
 rec()
 '''
 
 
-''' n과 m (4)
+''' n과 m (4) - 1부터 n까지 중에 비내림차순 순열
 
 n, m = list(map(int, input().split()))
  
@@ -88,7 +88,7 @@ rec(1)
 '''
 
 
-''' n과 m (5)
+''' n과 m (5) - 리스트의 원소 중에 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -112,7 +112,7 @@ rec()
 '''
 
 
-''' n과 m (6)
+''' n과 m (6) - 리스트의 원소 중에 오름차순 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -136,7 +136,7 @@ rec(0)
 '''
 
 
-''' n과 m (7) 재귀를 이용한 완전 탐색. 백트래킹x
+''' n과 m (7) - 리스트의 원소 중에 중복 순열 (재귀를 이용한 완전 탐색. 백트래킹x)
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -158,7 +158,7 @@ rec()
 '''
 
 
-''' n과 m (8)
+''' n과 m (8) - 리스트의 원소 중에 비내림차순 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -181,7 +181,7 @@ rec(0)
 '''
 
 
-''' nm과 k (1)
+''' nm과 k (1) - 
 
 def dfs(x, y, cnt, sum_value): # 재귀함수 정의
     dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)] # 탐색에 이용할 방향 정의
