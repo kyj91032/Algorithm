@@ -2,7 +2,7 @@
 
 # 완전 탐색의 기본 동작 과정
 '''
-1. 처음부터 끝까지 모두 확인(탐색)한다. (1 ~ 3차원 선형탐색, 최대최소 선형탐색, 좌표 이동경로 정의 후 탐색 or 시뮬레이션, 재귀적 구현, )
+1. 처음부터 끝까지 모두 확인(탐색)한다. (1 ~ 3차원 선형탐색, 최대최소 선형탐색, 좌표 이동경로 정의 후 탐색 or 시뮬레이션, 재귀적 구현, 비트마스크)
 2. 불필요한 탐색을 줄일 가능성이 있는지 알아본다. (탐색의 범위축소 ex) += 1 대신 += k, 백트래킹, 다이내믹 프로그래밍)
 '''
 
@@ -346,3 +346,47 @@ while 1:
 		ans = s
 print(ans)
 '''
+
+
+''' 14319 종이조각 - 비트마스킹
+
+import sys
+
+input = sys.stdin.readline
+
+n, m = map(int, input().rstrip().split())
+
+paper = []
+for _ in range(n):
+	paper.append(list(map(int, input().rstrip())))
+
+ans = []
+
+for i range(1 << n*m): # 2의 n * m승 가지의 경우의 수 모두 확인
+	total = 0
+	for row in range(n):
+		rowsum = 0
+		for col in range(m):
+			idx = row * m + col # idx는 주어진 배열의 번호
+			if i & (1 << idx) != 0: # 대충 알겠는데, 1. 이렇게 확인하면 모든 경우의 수가 확인되는가? 2. 이 풀이를 떠올릴만한 개연성이 있나?
+				rowsum = rowsum * 10 + paper[row][col]
+			else:
+				total += rowsum
+				rowsum = 0
+		total += rowsum
+	
+	for col in range(m):
+		colsum = 0
+		for row in range(n):
+			idx = row * m + col
+			if i & (1 << idx) == 0:
+				colsum = colsum * 10 + paper[row][col]
+			else:
+				total += colsum
+				colsum = 0
+		total += colsum
+	ans.append(total)
+
+print(max(ans))
+'''
+
