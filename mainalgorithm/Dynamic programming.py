@@ -151,3 +151,18 @@ for i in range(1, n + 1):
         dp[i + T[i] - 1] = max(dp[i + T[i] - 1], dp[i - 1] + P[i]) # 3. 점화식: d[오늘 꺼 상담 범위까지의 d[] 값] = max(
 print(dp[-1])
 '''
+
+
+''' 11052 카드 구매하기 - bf + dp의 사고과정
+
+n = int(input())
+p = list(map(int, input().split()))
+dp = [0] * (n + 1)
+
+for i in range(1, n + 1): # 바텀 업 방식으로 dp 테이블 완성
+	for k in range(1, i + 1):
+		dp[i] = max(dp[i], dp[i-k] + p[k - 1]) # 점화식을 반복해서 적용해야 비로소 정복되는 유형. 이중 반복문을 이용했다.
+										   # d를 통해 자연수의 분할을 압축시킬 수 있었다
+print(dp[i])
+'''
+
