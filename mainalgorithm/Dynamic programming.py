@@ -196,3 +196,24 @@ for i in range(tc):
     n = int(input())
     print(sum(dp[n]) % 1000000009)
 '''
+
+
+''' 10844 쉬운 계단 수 - 2차원 dp 테이블
+
+n = int(input())
+
+dp = [[0 for i in range(10)] for j in range(101)]
+
+for i in range(1, 10): # 각 자리수에서 맨 뒤에 올수 있는 숫자의 개수로 dp 테이블 두기. 자리수를 i, 맨 뒤 숫자를 j로.
+    dp[1][i] = 1 # n = 1(i = 1)일 때 초기값 부여
+
+for i in range(2, n + 1): # i = 2부터 바텀 업.
+    for j in range(10): # j는 0부터 9까지 확인하면서 개수 갱신
+        if j == 0:
+            dp[i][j] = dp[i - 1][1] # 0으로 끝나는 수의 개수는 i - 1에서 1로 끝나는 수의 개수
+        elif j == 9:
+            dp[i][j] = dp[i - 1][8] # 9로 끝나는 수의 개수는 i - 1에서 8로 끝나는 수의 개수
+        else:
+            dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j + 1] # j가 1~8일땐 i - 1에서 j - 1로 끝나는 수의 개수 + j + 1로 끝나는 수의 개수
+print(sum(dp[n]) % 1000000000)
+'''
