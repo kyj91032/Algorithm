@@ -204,7 +204,7 @@ n = int(input())
 
 dp = [[0 for i in range(10)] for j in range(101)]
 
-for i in range(1, 10): # 각 자리수에서 맨 뒤에 올수 있는 숫자의 개수로 dp 테이블 두기. 자리수를 i, 맨 뒤 숫자를 j로.
+for i in range(1, 10): # 각 자리수에서 맨 뒤에 올수 있는 숫자의 개수로 dp 테이블 두기. 자리수를 i, 맨 뒤 숫자를 j로, d값은 개수.
     dp[1][i] = 1 # n = 1(i = 1)일 때 초기값 부여
 
 for i in range(2, n + 1): # i = 2부터 바텀 업.
