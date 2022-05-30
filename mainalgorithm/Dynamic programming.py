@@ -251,7 +251,8 @@ dp = [1] * N
 
 for i in range(N):
     for j in range(i): # 점화식을 반복해서 적용해야 비로소 정복되는 유형. 이중 반복문을 이용했다.
-        if A[j] < A[i]:
-            dp[i] = max(dp[i],dp[j]+1)
+        if A[j] < A[i]: # 이전의 a값을 확인하며 작은 것 중 최대 길이 + 1로 갱신한다
+            dp[i] = max(dp[i], dp[j]+1)
 
 print(max(dp))
+'''
