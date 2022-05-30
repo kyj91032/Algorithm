@@ -239,3 +239,19 @@ for i in range(3, 91):
 			d[i][j] = d[i-1][0]
 print(sum(d[n]))
 '''
+
+
+''' 11053 가장 긴 증가하는 부분수열 - bf(최대최소, 이중반복) + dp의 사고 과정
+
+N = int(input())
+
+A = list(map(int, input().split()))
+
+dp = [1] * N
+
+for i in range(N):
+    for j in range(i): # 점화식을 반복해서 적용해야 비로소 정복되는 유형. 이중 반복문을 이용했다.
+        if A[j] < A[i]:
+            dp[i] = max(dp[i],dp[j]+1)
+
+print(max(dp))
