@@ -241,7 +241,7 @@ print(sum(d[n]))
 '''
 
 
-''' 11053 가장 긴 증가하는 부분수열 - bf(최대최소, 이중반복) + dp의 사고 과정
+''' 14002 가장 긴 증가하는 부분수열4 - bf(최대최소, 이중반복) + dp의 사고 과정
 
 N = int(input())
 
@@ -255,4 +255,15 @@ for i in range(N):
             dp[i] = max(dp[i], dp[j]+1)
 
 print(max(dp))
+
+s = [] # 수열 담을 리스트
+t = max(dp) # t를 줄여가며 수열 담을 것
+for i in range(N - 1, -1, -1):
+    if dp[i] == t:  # 만약 dp[i] 값이 t값과 같다면
+        s.append(A[i])  # 해당 A[i]값을 s에 추가
+        order -= 1  # 해당 order 값을 1씩 감소시킨다.
+
+s.reverse()  # 큰수부터 작은수로 뽑았기 때문에 반대로 정렬
+print(s) # 정답수열 출력
+
 '''
