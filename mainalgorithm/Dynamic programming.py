@@ -267,3 +267,19 @@ s.reverse()  # 큰수부터 작은수로 뽑았기 때문에 반대로 정렬
 print(s) # 정답수열 출력
 
 '''
+
+
+''' 1912 연속 합 - dp, 점화식의 아이디어..
+
+n = int(input())
+
+arr = list(map(int, input().split()))
+dp = [0] * len(arr)
+dp[0] = arr[0]
+
+for i in range(1, len(arr)):
+    dp[i] = max(arr[i], dp[i-1] + arr[i]) # arr[i]와 dp를 비교해나가면 된다는 걸 어떻게 알지..?
+
+print(max(dp))
+
+'''
