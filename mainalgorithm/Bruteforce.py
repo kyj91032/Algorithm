@@ -1,12 +1,12 @@
 # 브루트포스 알고리즘: 완전 탐색
 
 # 완전 탐색의 기본 동작 과정
-'''
+
 1. 처음부터 끝까지 모두 확인(탐색)한다. (1 ~ 3차원 선형탐색, 최대최소 선형탐색, 좌표 이동경로 정의 후 탐색 or 시뮬레이션, 재귀적 구현, 비트마스크)
 2. 불필요한 탐색을 줄일 가능성이 있는지 알아본다. (탐색의 범위축소 ex) += 1 대신 += k, 백트래킹, 다이내믹 프로그래밍)
-'''
 
-''' 시간 완전탐색
+
+# 시간 완전탐색
 
 h = int(input()) # 86400개의 경우의 수. 3중 반복문 이용
 cnt = 0
@@ -16,10 +16,10 @@ for i in range(n + 1):
 			if '3' in str(i) + str(j) + str(k):
 				cnt += 1
 print(cnt)
-'''
 
 
-''' 3085 사탕게임
+
+# 3085 사탕게임
 
 import sys
 input = sys.stdin.readline
@@ -75,10 +75,10 @@ for i in range(n):
             arr[i][j], arr[i+1][j] = arr[i+1][j], arr[i][j]
             
 print(answer)
-'''
 
 
-''' 1476 날짜 계산
+
+# 1476 날짜 계산
 
 a, b, c = map(int, input().split())
 y = 1 # 연도 자체(답)를 1부터 선형 탐색함. 답이 y라고 하면 맞나?를 계속 확인
@@ -88,10 +88,10 @@ while True:
         print(y)
         break
     y += 1
-'''
 
 
-''' 6064 카잉달력
+
+# 6064 카잉달력
 
 T = int(input())
 
@@ -106,10 +106,10 @@ for _ in range(T):
 		if year > M * N:
 			print(-1)
 			break
-'''
 
 
-''' 1107 리모컨
+
+# 1107 리모컨
 
 import sys
 input = sys.stdin.readline
@@ -129,10 +129,10 @@ for nums in range(1000001): # 고장난 채널을 제외한 모든 채널 탐색
             min_count = min(min_count, abs(int(nums) - target) + len(nums)) # 고장난 숫자 없이 마지막 자리까지 왔다면 min_count 비교 후 업데이트
 
 print(min_count)
-'''
 
 
-''' 나이트 움직이기
+
+# 나이트 움직이기
 
 input_data = input()
 row = int(input_data[1])
@@ -147,10 +147,10 @@ for step in steps:
     if next_row >= 1 and next_row <= 8 and next_column >= 1 and next_column <=8:
         cnt += 1
 print(cnt)
-'''
 
 
-''' 유닛의 자동 이동
+
+# 유닛의 자동 이동
 
 n, m = map(int, input().split())
 
@@ -198,10 +198,10 @@ while True:
         turn_time = 0
 
 print(count)
-'''
 
 
-''' 14500 테트로미노
+
+# 14500 테트로미노
 
 import sys
 input = sys.stdin.readline
@@ -231,10 +231,10 @@ for i in range(n): # 좌표 완전 탐색 하면서 이동 경로 탐색
                 sum_n = 0
             result = max(result, sum_n)
 print(result)
-'''
 
 
-''' n과 m (3) 완전 탐색의 재귀적 구현 recursive bruteforce
+
+# n과 m (3) 완전 탐색의 재귀적 구현 recursive bruteforce
 
 n, m = list(map(int, input().split()))
  
@@ -250,10 +250,10 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
             rec() # 재귀 호출
             s.pop()
 rec()
-'''
 
 
-''' 9095 1,2,3 더하기 - 완전 탐색의 재귀적 구현
+
+# 9095 1,2,3 더하기 - 완전 탐색의 재귀적 구현
 
 n = int(input())
 
@@ -270,10 +270,10 @@ def sums(n):
 for i in range(n):
     a = int(input())
     print(sums(a))
-'''
 
 
-''' 14501 퇴사
+
+# 14501 퇴사
 
 import sys
 input = sys.stdin.readline
@@ -297,10 +297,10 @@ def go(day, total):
 
 go(0, 0) # day는 0, total도 0부터 시작.
 print(ans)
-'''
 
 
-''' 10819 차이를 최대로 - 최대최소 bf
+
+# 10819 차이를 최대로 - 최대최소 bf
 
 import sys
 input = sys.stdin.readline
@@ -345,10 +345,10 @@ while 1:
 	if s > ans:
 		ans = s
 print(ans)
-'''
 
 
-''' 14319 종이조각 - 비트마스킹
+
+# 14319 종이조각 - 비트마스킹
 
 import sys
 
@@ -388,5 +388,5 @@ for i range(1 << n*m): # 2의 n * m승 가지의 경우의 수 모두 확인
 	ans.append(total)
 
 print(max(ans))
-'''
+
 
