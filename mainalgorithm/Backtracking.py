@@ -2,13 +2,13 @@
 # (In the first place, DFS is about graph..)
 
 # 백트래킹의 기본 동작 과정
-'''
+
 1. 재귀함수를 정의한다.
 2. 기본적으로 BF를 재귀적으로 수행하려 할 때 필요한 것이 깊이에 따른 종료 조건이고,
 3. 여기서 백트래킹을 하려면 완전 탐색 중에 다른 재귀 조건을 추가하여 가지치기를 구현해야한다.
-'''
 
-''' n과 m (1) - 1부터 n까지 중에 순열
+
+# n과 m (1) - 1부터 n까지 중에 순열
 
 n, m = list(map(int, input().split()))
  
@@ -26,10 +26,10 @@ def rec(): # bruteforce 인데 반복으로 안돼서 재귀로 접근.
             rec() # 재귀 호출
             s.pop()
 rec()
-'''
 
 
-''' n과 m (2) - 1부터 n까지 중에 오름차순 순열
+
+# n과 m (2) - 1부터 n까지 중에 오름차순 순열
 
 n, m = list(map(int, input().split()))
 
@@ -46,10 +46,10 @@ def rec(start):
             rec(i + 1)
             s.pop()
 rec(1)
-'''
 
 
-''' n과 m (3) - 1부터 n까지 중에 중복 순열 (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
+
+# n과 m (3) - 1부터 n까지 중에 중복 순열 (완전 탐색의 재귀적 구현 recursive bruteforce, 가지치기 없음)
 
 n, m = list(map(int, input().split()))
 
@@ -65,10 +65,10 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
         rec() # 재귀 호출
         s.pop()
 rec()
-'''
 
 
-''' n과 m (4) - 1부터 n까지 중에 비내림차순 순열
+
+# n과 m (4) - 1부터 n까지 중에 비내림차순 순열
 
 n, m = list(map(int, input().split()))
  
@@ -85,10 +85,10 @@ def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
         rec(i) # 재귀 호출. 비 내림차순이므로 rec(i + 1)이 아닌 rec(i)로 호출
         s.pop()
 rec(1)
-'''
 
 
-''' n과 m (5) - 리스트의 원소 중에 순열
+
+# n과 m (5) - 리스트의 원소 중에 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -109,10 +109,10 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
             rec() # 재귀 호출
             s.pop()
 rec()
-'''
 
 
-''' n과 m (6) - 리스트의 원소 중에 오름차순 순열
+
+# n과 m (6) - 리스트의 원소 중에 오름차순 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -133,10 +133,10 @@ def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
             rec(list.index(i) + 1) # 재귀 호출
             s.pop()
 rec(0)
-'''
 
 
-''' n과 m (7) - 리스트의 원소 중에 중복 순열 (재귀를 이용한 완전 탐색. 백트래킹x)
+
+# n과 m (7) - 리스트의 원소 중에 중복 순열 (재귀를 이용한 완전 탐색. 백트래킹x)
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -155,10 +155,10 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
         rec() # 재귀 호출
         s.pop()
 rec()
-'''
 
 
-''' n과 m (8) - 리스트의 원소 중에 비내림차순 순열
+
+# n과 m (8) - 리스트의 원소 중에 비내림차순 순열
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
@@ -178,10 +178,10 @@ def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
         rec(list.index(i)) # 재귀 호출. 비내림차순이므로 list.index(i) + 1이 아닌 list.index(i)로 호출
         s.pop()
 rec(0)
-'''
 
 
-''' nm과 k (1) - 
+
+# nm과 k (1) - 
 
 def dfs(x, y, cnt, sum_value): # 재귀함수 정의
     dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)] # 탐색에 이용할 방향 정의
@@ -214,10 +214,10 @@ max_value = 0 # 최댓값 초기값
 check = [[False for _ in range(m)] for _ in range(n)] # 방문 여부 테이블
 dfs(0, 0, 0, 0)
 print(max_value)
-'''
 
 
-''' 1759 암호 만들기 - 백트래킹
+
+# 1759 암호 만들기 - 백트래킹
 
 l, c = map(int, input().split())
 cl = list(input().split())
@@ -248,10 +248,10 @@ def rec(start):
 			rec(cl.index(i) + 1)
 			s.pop()
 rec(0)
-'''
 
 
-''' 14889 스타트와 링크
+
+# 14889 스타트와 링크
 
 from itertools import combinations
 
@@ -287,10 +287,10 @@ for j in range(int(l/2)):
 	m2.append(abs(m[j] - m[l - 1 - j]))
 
 print(min(m2))
-'''
 
 
-''' 15661 링크와 스타트
+
+# 15661 링크와 스타트
 
 from itertools import combinations
 import sys
@@ -336,10 +336,10 @@ for j in range(int(l/2)):
 	m2.append(abs(m[j] - m[l - 1 - j]))
 
 print(min(m2))
-'''
 
 
-''' 2529 부등호
+
+# 2529 부등호
 
 n = int(input())
 
@@ -379,10 +379,10 @@ rec()
 
 print(''.join(str(x) for x in smax))
 print(''.join(str(x) for x in smin))
-'''
 
 
-''' 1248 guess (부호 행렬)
+
+# 1248 guess (부호 행렬)
 
 def ck(idx): # 합의 부호가 맞는지 확인
     hap = 0
@@ -424,10 +424,10 @@ solve(0)
 print(' '.join(map(str, result)))
 
 
-'''
 
 
-''' 10971 외판원 순회2
+
+# 10971 외판원 순회2
 
 import sys
 input = sys.stdin.readline
@@ -471,10 +471,10 @@ def rec(): # 순회 경로 재귀로 구현
 
 rec()
 print(res)
-'''
 
 
-''' 6603 로또 - 리스트에서 오름차순 순열
+
+# 6603 로또 - 리스트에서 오름차순 순열
 
 q = []
 def rec(start):
@@ -498,4 +498,4 @@ while 1:
 	
 	rec(0)
 	print()
-'''
+
