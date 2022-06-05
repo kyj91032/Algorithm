@@ -1,14 +1,14 @@
 # 집합 자료구조: 수학에서의 집합과 같은 자료구조
 
 # 집합의 기본 동작 과정
-'''
+
 1. 집합 공간을 정의한다.
 2. 집합 공간에서 add와 discard를 수행한다.
-'''
+
 
 # set 코드
 
-''' 11723 집합 - 파이썬 set() 이용
+# 11723 집합 - 파이썬 set() 이용
 import sys
 
 s = set()
@@ -38,10 +38,10 @@ for i in range(n):
 			s.discard(target)
 		else:
 			s.add(target)
-'''
 
 
-''' 11723 집합 - 비트 집합 사용 S = 0b0
+
+# 11723 집합 - 비트 집합 사용 S = 0b0
 import sys
 
 M = int(sys.stdin.readline())
@@ -75,4 +75,3 @@ for i in range(M):
 		
 		elif order == 'empty':
 			S = 0b0
-'''
