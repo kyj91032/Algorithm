@@ -259,7 +259,6 @@ s.reverse()  # 큰수부터 작은수로 뽑았기 때문에 반대로 정렬
 print(s) # 정답수열 출력
 
 
-
 # 1912 연속 합 - dp, 점화식의 아이디어..
 
 n = int(input())
@@ -273,3 +272,19 @@ for i in range(1, len(arr)):
 
 print(max(dp))
 
+
+# 1699 제곱수의 합 -
+
+n = int(input())
+	     
+dp = [0 for i in range(n + 1)]
+square = [i * i for i in range(1, 317)]
+	     
+for i in range(1, n + 1):
+    s = []
+    for j in square: # in 활용.. 반복문
+        if j > i: # i보다 작거나 같은 제곱수
+            break
+        s.append(dp[i - j]) # s에는 dp(i - i보다 작거나 같은 제곱수)가 들어감
+    dp[i] = min(s) + 1 # 그중에 최소 + 1이 dp값
+print(dp[n])
