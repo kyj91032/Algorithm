@@ -285,6 +285,6 @@ for i in range(1, n + 1):
     for j in square: # in 활용.. 반복문
         if j > i: # i보다 작거나 같은 제곱수
             break
-        s.append(dp[i - j]) # s에는 dp(i - i보다 작거나 같은 제곱수)가 들어감
+        s.append(dp[i - j]) # s에는 dp(i - i보다 작거나 같은 제곱수)가 들어감.. 뭘 하든 상관 없는거 아닌가.. 이걸 어떻게 생각하지
     dp[i] = min(s) + 1 # 그중에 최소 + 1이 dp값
 print(dp[n])
