@@ -5,6 +5,7 @@
   - Queue
 
 - Main Algorithm
+  - programming : in sequence
   - Iteraion and Recursive
   - Bruteforce
   - Backtracking
