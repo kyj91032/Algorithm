@@ -3,6 +3,7 @@
 - Data Structure
   - Stack
   - Queue
+  - Set
 
 - Main Algorithm
   - programming : in sequence
