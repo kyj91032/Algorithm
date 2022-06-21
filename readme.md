@@ -7,8 +7,8 @@
 
 - Main Algorithm
   - programming : in sequence
-  - Iteraion and Recursive
   - Bruteforce
+  - Iteraion and Recursive
   - Backtracking
   - Dynamic programming
   - Depth-Fisrt Search
