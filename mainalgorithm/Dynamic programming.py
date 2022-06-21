@@ -3,9 +3,10 @@
 
 # 다이내믹 프로그래밍의 기본 동작 과정
 
-1. i와 d[i]를 정의한다.
-2. 추상적인 점화식을 생각한다.
-3. i를 1부터 대입하며 일반적인 i에 대한 구체적인 점화식을 구한다
+1. 재귀적임을 인지.
+2. i와 d[i]를 정의한다.
+3. 추상적인 점화식을 생각한다.
+4. i를 1부터 대입하며 일반적인 i에 대한 구체적인 점화식을 구한다
 
 
 
@@ -68,7 +69,7 @@ for i in range(2, n):
 print(d[n - 1])             
 
 
-# 최소 화폐 단위 구성: 단위마다 d.p 반복
+# 최소 화폐 단위 구성 - dp 테이블이 순서대로 완성되지 않음. ;화폐 2에 대해서 dp 실행 후 3에 대해서 dp ... 그냥 변수가 2개일 때의 일반적인 처리?일지도.
 
 n, m = map(int, input().split())
 array = []
@@ -76,43 +77,19 @@ for i in range(n):
     array.append(int(input()))
 # f(i) = ai = i원의 화폐 구성 최적의 해
 # 점화식: for(ai = min(ai, ai-k + 1))
+# 점화식에 변수 k 를 고정시켜야함. 따라서 k를 고정시켜가며 테이블을 구성.
 
-d = [10001] * (m + 1) # 
+d = [10001] * (m + 1) # 과정이 끝났음에도 10001로 남아있다면 화폐구성이 가능하지 않다는 의미.
 
 d[0] = 0   # 초깃값
-for i in range(n):  # 단위마다 dp를 반복
-    for j in range(array[i], m + 1):
-        if d[j - array[i]] != 10001:  # (i - k)원을 만드는 방법이 존재하는 경우
-            d[j] = min(d[j], d[j - array[i]] + 1) # 최소 선택.
+for k in array:  # k를 고정. 점화식을 위해
+    for j in range(k, m + 1): # j는 화폐부터 m까지
+        d[j] = min(d[j], d[j - k] + 1) # 최소 선택 (점화식)
 
 if d[m] == 10001: # 최종적으로 M원을 만드는 방법이 없는 경우
     print(-1)
 else:
     print(d[m])
-             
-
-# 최소 화폐 단위 구성: 단위 한꺼번에 d.p
-
-n, m = map(int, input().split())
-
-array = []
-for _ in range(n):
-	array.append(int(input()))
-	
-d = [10001] * (m + 1)
-
-d[0] = 0
-
-for i in range(array[0], m + 1):
-	for j in range(0, n):
-		if i - array[j] >= 0:
-			d[i] = min(d[i], d[i - array[j]] + 1)
-	if d[i] == 10001:
-		print(-1)
-		break
-
-if d[i] != 10001:
-	print(d[m])
              
 
 # 타일을 배치하는 경우의 수
