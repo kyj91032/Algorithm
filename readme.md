@@ -6,7 +6,6 @@
   - Set
 
 - Main Algorithm
-  - programming : in sequence
   - Bruteforce
   - Iteraion and Recursive
   - Backtracking
