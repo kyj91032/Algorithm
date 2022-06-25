@@ -1,3 +1,4 @@
+'''
 # 다이내믹 프로그래밍: 완전 탐색 시, 재귀적으로 연결된 작은 문제를 반복적으로 해결(결과값의 재사용 => dp 테이블 필요)함으로써 큰 문제를 해결할 수 있을 때 사용한다.
 # 초기값부터 i까지 모두 재귀적으로 영향을 주고 있어 한번에 필드를 정복한다. (=> 점화식 필요)
 
@@ -279,7 +280,7 @@ for i in range(1, n + 1):
 print(dp[n])
 
 
-# 2225 합분해 - 
+# 2225 합분해 - 복잡한 점화식 세우기
 
 '''table(2, 3) 은 값 2를 만들기 위해 3개의 숫자를 더해서 만드는 경우의 수를 의미하며 다음과 같이 나타낼 수 있다.
  
@@ -308,4 +309,39 @@ for _ in range(1, K+1):
         table[idx] = (table[idx] + table[idx-1])%mod
 
 sys.stdout.write(str(table[N]))
+
+
+# 15988 1, 2, 3 더하기3 - 규칙성에 따른 dp
+
+import sys
+input = sys.stdin.readline
+
+dp = [0 for i in range(1000001)]
+dp[0] = 1
+dp[1] = 1
+dp[2] = 2
+for i in range(3, 1000001):
+    dp[i] = dp[i - 1] % 1000000009 + dp[i - 2] % 1000000009 + dp[i - 3] % 1000000009 # 그냥 나열 후 규칙에 의한 점화식
+
+t = int(input())
+for i in range(t):
+    n = int(input())
+    print(dp[n] % 1000000009)
+
+
+# 1149 RGB거리 - 아니.. 씨발 이렇게 무식하게?
+
+n = int(input())
+p = []
+for i in range(n):
+    p.append(list(map(int, input().split())))
+
+for i in range(1, len(p)):
+    p[i][0] = min(p[i - 1][1], p[i - 1][2] ) + p[i][0] # 그냥 빨강 초록 파랑 모두에 대해 최솟값을 구해버림.
+    p[i][1] = min(p[i - 1][0], p[i - 1][2]) + p[i][1]
+    p[i][2] = min(p[i - 1][0], p[i - 1][1]) + p[i][2]
+
+print(min(p[n - 1][0], p[n - 1][1], p[n - 1][2]))
+
+
 
