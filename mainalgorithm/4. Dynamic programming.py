@@ -432,7 +432,7 @@ for i in range(501):
 	for j in range(i+1):
 		d[i].append(0)
 
-if n == 1: # 이렇게 분류 안하면 indexerror 
+if n == 1: # 이렇게 분류 안하면 indexerror 뜸
 	d[0] = t[0][0]
 	print(d[0])
 elif n == 2:
