@@ -419,7 +419,7 @@ else:
 	print(max(d[n]))
 
 
-1932 정수 삼각형 - 2차원 dp 테이블. 점화식이 이전 i에 대해 더 디테일한 정보를 요구할 때, 자기 자신을 포함했는지를 기준으로 나눠 구하는 d.
+# 1932 정수 삼각형 - 2차원 dp 테이블. 점화식이 이전 i에 대해 더 디테일한 정보를 요구할 때, 자기 자신을 포함했는지를 기준으로 나눠 구하는 d.
 
 n = int(input())
 
@@ -452,5 +452,26 @@ else:
 			else:
 				d[i][j] = t[i][j] + max(d[i-1][j-1], d[i-1][j])
 	print(max(d[n-1]))
+
+
+	     
+# 11055 가장 큰 증가 부분 수열 - 시간복잡도에 대해.. n이 10000까지는 이중 반복 가능성 있음
+
+n = int(input())
+	     
+array = list(map(int, input().split()))
+
+d = [1] * n
+d[0] = array[0]
+for i in range(1, n):
+  for j in range(i): # 일차원 반복문으로 코드를 짜면, 앞 쪽이 고려되지 알 수 있는데, 이 때 n의 크기를 보고 이중 반복문을 활용할 생각을 해야함.
+    if array[j] < array[i]:
+      d[i] = max(d[i], d[j] + array[i]) # ai가 더 크면 이전 d에 넣어보고
+    else:
+      d[i] = max(d[i], array[i]) # ai가 더 작으면 ai만 넣어보고
+
+print(max(d))
+
+
 '''
 
