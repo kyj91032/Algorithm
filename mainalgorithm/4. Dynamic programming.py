@@ -481,7 +481,7 @@ n = int(input())
 
 a = list(map(int, input().split()))
 
-d = [1] * n
+d = [1] * n # 사소한 초깃값 설정. d = [0]*n 으로 하면 틀림. 다른 반례에 걸려서..
 
 d[0] = 1
 
