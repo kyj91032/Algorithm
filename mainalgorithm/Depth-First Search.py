@@ -28,7 +28,7 @@ graph = [ # 인접 리스트 방식.
 ]
 visited = [False] * 9
 
-def dfs(graph, v, visited):
+def dfs(graph, v, visited): # 시작 노드가 무조건 visited = false일 때.
 	visited[v] = True
   for i in graph[v]:
     if not visited[i]: # 인접 노드의 방문 여부가 재귀 조건: 방문 안 했으면 재귀 호출, 방문 다 했으면 함수 종료.
