@@ -158,7 +158,7 @@ graph = []
 
 for _ in range(n):
 	graph.append(list(map(int, input())))
-	# 간선 정보가 필요없는 그래프는 visited를 대신해서 값으로 쓴다.
+	# 간선 정보가 필요없는 그래프는 visited를 값으로 대신해서 쓴다.
 num = []
 
 def dfs(x, y):
