@@ -36,7 +36,7 @@ def bfs(graph, start, visited):
 + dfs는 재귀함수로 구현을 하기 떄문에 순서를 어떻게 하느냐에 따라 방법이 나뉠 수 있지만, bfs는 그냥 정해진 순서가 있다.
 
 
-# 미로 탈출
+# 2178 미로 탐색
 
 from collections import deque
 
