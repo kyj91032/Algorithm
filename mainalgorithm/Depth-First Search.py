@@ -144,7 +144,7 @@ def dfs(graph, v, visited):
 			dfs(graph, i, visited)
 
 for i in range(1, n + 1):
-	if not visited[i]: # visited 의 연결. dfs가 끝나도 visited를 이용해 탐색여부를 판단하고, 연결요소의 개수를 구할 수 있음
+	if not visited[i]: # 방문하지 않은 것만. visited 의 연결. dfs가 끝나도 visited를 이용해 탐색여부를 판단하고, 연결요소의 개수를 구할 수 있음
 		dfs(graph, i, visited)
 		cnt += 1
 print(cnt)
