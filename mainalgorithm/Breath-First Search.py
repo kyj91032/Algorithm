@@ -109,3 +109,38 @@ for _ in range(int(input())):
                 break
 
     print('YES' if result else 'NO')
+
+
+# 7576 토마토 - bfs로 서로다른 시작점을 동시에 번갈아가면서 탐색해야한다? -> 애초에 bfs를 시작할 때 queue에 시작점들을 넣어주기만 하면 됨. queue는 선입선출이라 시작점1 -> 시작점 2-> 시작점1-1 -> 시작점 2-2 ... 순서로 실행됨.
+
+from collections import deque
+
+m, n = map(int, input().split())
+matrix = [list(map(int, input().split())) for _ in range(n)]
+queue = deque([])
+dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+res = 0
+
+for i in range(n):
+    for j in range(m):
+        if matrix[i][j] == 1:
+            queue.append([i, j])
+
+def bfs():
+    while queue:
+        x, y = queue.popleft()
+        for i in range(4):
+            nx, ny = dx[i] + x, dy[i] + y
+            if 0 <= nx < n and 0 <= ny < m and matrix[nx][ny] == 0:
+                matrix[nx][ny] = matrix[x][y] + 1
+                queue.append([nx, ny])
+
+bfs()
+for i in matrix:
+    for j in i:
+        if j == 0:
+            print(-1) # -1이 있으면 0
+            exit(0)
+    res = max(res, max(i)) # max(visited)
+print(res - 1)
+
