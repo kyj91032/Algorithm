@@ -121,7 +121,7 @@ for i in range(1, n + 1):
 print(cnt)
 
 
-# 2667 단지번호붙이기 - dfs에서 깊이값 출력하기
+# 2667 단지번호붙이기 - 격자그래프, dfs에서 깊이값 출력하기
 
 n = int(input())
 
@@ -129,7 +129,7 @@ graph = []
 
 for _ in range(n):
 	graph.append(list(map(int, input())))
-	# 간선 정보가 필요없는 그래프는 visited를 graph의 값으로 대신해서 쓴다.
+	# 간선 정보가 필요없는 그래프는 visited를 graph의 값으로 대신해서 쓴다. 격자그래프
 num = []
 
 def dfs(x, y):
