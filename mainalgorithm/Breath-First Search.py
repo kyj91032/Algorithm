@@ -36,7 +36,8 @@ def bfs(graph, start, visited):
 + dfs는 재귀함수로 구현을 하기 떄문에 순서를 어떻게 하느냐에 따라 방법이 나뉠 수 있지만, bfs는 그냥 정해진 순서가 있다.
 
 
-# 2178 미로 탐색
+# 2178 미로 탐색 - 격자그래프, bfs의 탐색 경로 정의
+# bfs에서 격자 그래프는 그냥 인덱싱하면 되는 dfs와 달리, queue를 써야하기 때문에 (x, y)튜플로 queue에 넣고 빼고 하는 것.
 
 from collections import deque
 
@@ -111,7 +112,7 @@ for _ in range(int(input())):
     print('YES' if result else 'NO')
 
 
-# 7576 토마토 - bfs로 서로다른 시작점을 동시에 번갈아가면서 탐색해야한다? -> 애초에 bfs를 시작할 때 queue에 시작점들을 넣어주기만 하면 됨. queue는 선입선출이라 시작점1 -> 시작점 2-> 시작점1-1 -> 시작점 2-2 ... 순서로 실행됨.
+# 7576 토마토 - 격자그래프, bfs의 시작 노드 여러개 정의
 
 from collections import deque
 
@@ -143,4 +144,39 @@ for i in matrix:
             exit(0)
     res = max(res, max(i)) # max(visited)
 print(res - 1)
+
+
+# 7562 나이트의 이동 - 격자그래프, bfs의 탐색 경로 정의
+
+from collections import deque
+
+T = int(input())
+
+dx = [-2, -1, 1, 2, 2, 1, -1, -2]
+dy = [-1, -2, -2, -1, 1, 2, 2, 1]
+
+def bfs(x, y):
+	queue = deque()
+	queue.append((x, y))
+	graph[x][y] = 1
+	while queue:
+		x, y = queue.popleft()
+		for i in range(8):
+			nx = x + dx[i]
+			ny = y + dy[i]
+			if nx < 0 or ny < 0 or nx >= n or ny >= n:
+				continue
+			if graph[nx][ny] == 0:
+				graph[nx][ny] = graph[x][y] + 1
+				queue.append((nx, ny))
+	print(graph[p][q] - 1)
+	return
+
+for _ in range(T):
+	n = int(input())
+	a, b = map(int, input().split())
+	p, q = map(int, input().split())
+	graph = [[0] * n for i in range(n)]
+	
+	bfs(a, b)
 
