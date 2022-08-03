@@ -124,7 +124,7 @@ res = 0
 for i in range(n):
     for j in range(m):
         if matrix[i][j] == 1:
-            queue.append([i, j])
+            queue.append([i, j]) # 시작노드 미리 넣어두고 밑에서 bfs 시작
 
 def bfs():
     while queue:
