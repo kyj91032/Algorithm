@@ -37,7 +37,7 @@ def bfs(graph, start, visited):
 
 
 # 2178 미로 탐색 - 격자그래프, bfs의 탐색 경로 정의
-# bfs에서 격자 그래프는 그냥 인덱싱하면 되는 dfs와 달리, queue를 써야하기 때문에 (x, y)튜플로 queue에 넣고 빼고 하는 것.
+# bfs에서 격자 그래프는 queue를 써야하기 때문에 (x, y)튜플로 queue에 넣고 빼고 하는 것. dfs도 stack을 써야됬다면 (x,y)로 해야됨
 
 from collections import deque
 
