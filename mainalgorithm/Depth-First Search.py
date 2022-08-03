@@ -31,11 +31,11 @@ visited = [False] * 9
 def dfs(graph, v, visited):
 	visited[v] = True
   for i in graph[v]:
-    if not visited[i]: # 인접 노드의 방문 여부가 재귀 조건: 방문 안 했으면 재귀 호출, 방문 다 했으면 함수 종료.
+    if not visited[i]: # 인접 노드의 방문 여부가 재귀 조건: 방문 안한 인접 노드면 호출, 방문 한 인접노드면 호출X
       dfs(graph, i, visited)
 
 def dfs(graph, v, visited):
-	if not visited[v]: # 현재 노드의 방문 여부가 재귀 조건: 방문 안 했으면 재귀 호출, 방문 다 했으면 함수 종료.
+	if not visited[v]: # 현재 노드의 방문 여부가 재귀 조건: 호출 시 방문 안한 노드면 방문처리, 방문 했으면 탈출
 		visited[v] = True
 		for i in graph[v]:
 			dfs(graph, i, visited)
