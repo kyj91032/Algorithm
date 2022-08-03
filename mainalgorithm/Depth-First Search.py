@@ -28,7 +28,7 @@ graph = [ # 인접 리스트 방식.
 ]
 visited = [False] * 9
 
-def dfs(graph, v, visited): # 시작 노드가 무조건 visited = false일 때.
+def dfs(graph, v, visited):
 	visited[v] = True
   for i in graph[v]:
     if not visited[i]: # 인접 노드의 방문 여부가 재귀 조건: 방문 안 했으면 재귀 호출, 방문 다 했으면 함수 종료.
@@ -164,7 +164,7 @@ num = []
 def dfs(x, y):
 	if x <= -1 or x >= n or y <= -1 or y >= n:
 		return False
-	if graph[x][y] == 1:
+	if graph[x][y] == 1: # 시작 노드의 방문 여부로 dfs
 		global count
 		count += 1 # 스택이 다시 비었을때, count값이 유지되도록 해야함 그리고 다시 0으로 돌려주기
 		graph[x][y] = 0
@@ -188,3 +188,5 @@ num.sort()
 print(result)
 for i in range(len(num)):
     print(num[i])
+
+
