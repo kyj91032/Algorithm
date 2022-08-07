@@ -180,3 +180,35 @@ for _ in range(T):
 	
 	bfs(a, b)
 
+
+# 1697 숨바꼭질 - bfs vs dp.. dp가 되려면 1.점화식 써짐 2.dp테이블전체를 채울만한 시간복잡도. 이 문제는 100000^2라서 불가능. 점화식이 써지지도 않음.
+# 1차원 좌표에서 bfs. 좌표에서의 bf는 그래프 탐색을 할 수 있다는 걸 염두해야함.
+
+from collections import deque
+
+n, k = map(int, input().split())
+
+graph = [0] * 100001
+
+d = [-1, 1]
+
+def bfs(start, end):
+	queue = deque([start])
+	graph[start] += 1
+	while queue:
+		v = queue.popleft()
+		for i in range(2):
+			nx = v + d[i]
+			if nx < 0 or nx > 100000 or graph[nx] != 0: # 최초로 visited가 새겨진 값이 최솟값임. bfs 순서 상 덮어써지는 값은 무조건 최초값보다 크거나 같음.
+				continue
+			queue.append(nx)
+			graph[nx] = graph[v] + 1
+		nx = v * 2
+		if nx >= 0 and nx <= 100000 and graph[nx] == 0:
+			queue.append(nx)
+			graph[nx] = graph[v] + 1
+		if graph[k]:
+			print(graph[k] - 1)
+			break
+bfs(n, k)
+
