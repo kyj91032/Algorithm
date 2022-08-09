@@ -1,4 +1,4 @@
-# 넓이 우선 탐색(BFS): 가중치가 1인 그래프에서, 탐색하지 않은 인접 노드를 우선으로 최대한 넓게 탐색하여 노드를 방문한 후, 다시 돌아가 다른 경로로 탐색하는 방법이다.
+# 넓이 우선 탐색(BFS): 가중치가 1인 그래프에서(모든간선의 가중치가 동일한 그래프에서), 탐색하지 않은 인접 노드를 우선으로 최대한 넓게 탐색하여 노드를 방문한 후, 다시 돌아가 다른 경로로 탐색하는 방법이다.
 # 큐가 선입선출이라 넓이 우선 탐색이 가능한 것. bfs는 큐를 이용하므로 큐와 반복문을 같이 쓴다.
 
 # BFS의 기본적인 동작 과정과 코드
@@ -292,4 +292,36 @@ for i in range(n+1):
         if answer == -1 or answer > dist[n][i]:
             answer = dist[n][i]
 print(answer)
+
+
+# 13549 숨바꼭질3 - bfs의 조건. 모든 간선의 가중치가 동일해야 한다는 전제 조건. 이 문제는 *2를 먼저 실행해야 통과됨. 아마 0초인걸 먼저해야 최초의 visited가 최소가 돼서 그런듯.
+
+from collections import deque
+
+n, k = map(int, input().split())
+
+graph = [0] * 100001
+
+d = [-1, 1]
+
+def bfs(start, end):
+	queue = deque([start])
+	graph[start] += 1
+	while queue:
+		v = queue.popleft()
+		nx = v * 2
+		if nx >= 0 and nx <= 100000 and graph[nx] == 0:
+			queue.append(nx)
+			graph[nx] = graph[v]
+		for i in range(2):
+			nx = v + d[i]
+			if nx < 0 or nx > 100000 or graph[nx] != 0:
+				continue
+			queue.append(nx)
+			graph[nx] = graph[v] + 1
+		if graph[k]:
+			print(graph[k] - 1)
+			break
+bfs(n, k)
+
 
