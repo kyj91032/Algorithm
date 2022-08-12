@@ -10,7 +10,8 @@
   - Iteraion and Recursive
   - Backtracking
   - Dynamic programming
-  - Depth-Fisrt Search
+  - Depth-First Search
+  - Breath-First Search
 
 - Sub Algorithm
   - Sort library
