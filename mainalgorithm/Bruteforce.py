@@ -473,7 +473,8 @@ for cal in cals:
 for i in arr:
     print(*i)
 
-# 16926 배열돌리기3 - bf가 복잡하면 예시를 이용해 일반화를 시작하기
+	     
+# 16926 배열돌리기3 - 복잡한 bf는 예시를 이용해 일반화를 시작하기
 
 import sys
 input = sys.stdin.readline
@@ -516,4 +517,38 @@ for i in range(n):
     for j in range(m):
         print(data[i][j], end=' ')
     print()
+
+
+# 16927 배열돌리기2 - 제자리에 오는 걸 고려해서 r을 나눌생각, 더 나아가서 고리마다 다른 제자리 값을 적용해주는 것.
+
+import math
+
+N, M, R = map(int, input().split())
+
+NUMBERS = [list(map(int, input().split())) for _ in range(N)]
+
+turns = []
+for k in range(min(N, M)//2):
+    turns.append(2*((N-(2*k))+(M-(2*k)))-4)
+
+
+for k in range(min(N,M)//2):
+    for r in range(R%turns[k]):
+        temp = NUMBERS[k][k]
+        for i in range(1+k, M-k):
+            NUMBERS[k][i-1] = NUMBERS[k][i]
+
+        for i in range(1+k, N-k):
+            NUMBERS[i-1][M-1-k] = NUMBERS[i][M-1-k]
+
+        for i in range(1+k, M-k):
+            NUMBERS[N-1-k][M-i]=NUMBERS[N-1-k][M-1-i]
+
+        for i in range(1+k, N-k):
+            NUMBERS[N-i][k] = NUMBERS[N-1-i][k]
+
+        NUMBERS[1+k][k] = temp
+
+for n in NUMBERS:
+    print(" ".join(map(str,n)))
 '''
