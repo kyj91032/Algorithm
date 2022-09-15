@@ -15,6 +15,12 @@ for c in cuv:
 	g = c[3]
 	temp[x][y] = 1
 	temp[x+dx[d]][y+dy[d]] = 1
-	
+	for i in range(101):
+		for j in range(101):
+			if temp[i][j] == 1 and visited[i][j] == 0:
+				visited[i][j] = 1
+	temp = [[0] * 101 for _ in range(101)]
+	# 끝점 잡기
+	# 회전함수
 	for i in range(g - 1):
 		
