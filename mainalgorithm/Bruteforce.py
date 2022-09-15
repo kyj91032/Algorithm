@@ -792,7 +792,7 @@ dy = [1, 0, -1, 0]
 
 for i in range(n):
 
-    y, x, d, g = map(int, input().split(' '))
+    y, x, d, g = map(int, input().split(' ')) # 리스트를 만들었을때, 주어진 y가 2차원 리스트의  인덱스임. 따라서 x y 바꿔줌
     graph[x][y] = 1 # 시작점 visited
 
     # 커브 리스트 만들기
