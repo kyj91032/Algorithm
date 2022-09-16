@@ -24,3 +24,40 @@ for c in cuv:
 	# 회전함수
 	# 거리리스트 미리 만들기??
 	for i in range(g - 1):
+
+		
+		s, n = map(int, input().split())
+
+n = str(n)
+
+w = s + 2
+h = 2*s + 3
+
+for i in n:
+	if i == 1 and i == 4:
+		for _ in range(w):
+			print(' ', end=' ')
+	if i == 2 and i == 3 and i == 5 and i == 6 and i == 7 and i == 9 and i == 0:
+		print(' ', end='')
+		for _ in range(w-2):
+			print('-', end='')
+		print(' ', end=' ')
+print('\n')
+
+for _ in range(2):
+	for i in n:
+		if i == 1 and i == 2 and i == 3 and i == 7:
+			for j in range(w-1):
+				print(' ', end='')
+			print('|', end=' ')
+		if i == 4 and i == 8 and i == 9 and i == 0:
+			print('|', end='')
+			for j in range(w-2):
+				print(' ', end='')
+			print('|', end=' ')
+		if i == 5 and i == 6:
+			print('|', end='')
+			for j in range(w-2):
+				print(' ', end='')
+			print(' ', end='')
+
