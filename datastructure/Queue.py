@@ -3,13 +3,13 @@
 # 큐의 기본 동작 과정
 
 1. 큐 공간을 정의한다.
-2. 큐 공간의 양쪽 끝에서 push와 pop이 이뤄지도록 한다.
+2. 큐 공간의 양쪽 끝에서 push(append)와 pop(popleft)이 이뤄지도록 한다.
 
 
 # queue 코드
 
 
-from collections import deque  # queue 라이브러리보다 효율적이고 간단해서 그냥 deque 씀
+from collections import deque  # queue 라이브러리보다 효율적이고 간단해서 그냥 deque 씀. 양방향 큐
 
 queue = deque()  # 큐 구현을 위해 deque 라이브러리 사용. 큐 공간 생성. queue를 deque 객체로 정의. deque([list]) 리스트를 매개변수로 받아서 시작 데이터 설정 가능.
 
@@ -25,3 +25,12 @@ queue.popleft()
 print(queue)  # 먼저 들어온 순서대로 출력.
 deque([3, 7, 1, 4])  # 리스트로 변환하려면 list()
 
+
+# 양방향 큐 deque의 4가지 연산
+q.popleft(), q.pop(), q.append(), q.qppendleft()
+
+# 큐에서 데이터 삭제하기
+q.remove(data)
+
+# 큐의 회전. n만큼 인덱스 증가방향으로 회전
+q.rotate(n)
