@@ -21,3 +21,37 @@ stack.pop()
 print(stack[::-1]) # 최상단 데이터부터 출력.
 print(stack) # 최하단 데이터부터 출력.
 
+
+# 1874 스택 수열 -> 그냥 짜면, 여러가지 많은 문제들이 저절로 해결되는 문제.. 크면 스택을 채우고, 작으면 조건을 확인해서 pop 하거나, NO 출력
+
+n = int(input())
+t = []
+for _ in range(n):
+	t.append(int(input()))
+a = []
+for i in range(n):
+	a.append(i)
+  
+s = []
+ans = []
+flag = 0
+
+i = 1 # i가 밖에 있어서, 반복문 안에서 i가 계속 이어지는데, 이게 상관이 없음.
+for k in t:
+	while i <= k: # 전 반복에서 i가 이미 현재 k보다 커졌었다면, while문은 실행하지 않음(= 스택이 채워지지 않음)
+		s.append(i)
+		ans.append("+")
+		i += 1
+    
+	if s[-1] == k:
+		s.pop()
+		ans.append("-")
+	else:
+		print("NO")
+		flag = 1
+		break
+
+if flag == 0:
+	for i in ans:
+		print(i)
+'''
