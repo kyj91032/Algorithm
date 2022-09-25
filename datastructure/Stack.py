@@ -54,4 +54,33 @@ for k in t:
 if flag == 0:
 	for i in ans:
 		print(i)
+
+
+
+# 1406 에디터 -> 스택의 활용.. 커서를 기준으로 앞뒤 스택을 쪼개기. o(n)커서를 움직이기 -> o(1)제자리에서 append, pop
+
+import sys
+
+st1 = list(sys.stdin.readline().rstrip())
+st2 = [] # 처음 시작은 커서 맨 뒤
+
+for _ in range(int(sys.stdin.readline())):
+	command = list(sys.stdin.readline().split())
+	if command[0] == 'L':
+		if st1:
+			st2.append(st1.pop()) # 커서 왼쪽 스택에서 팝해서 오른쪽 스택에 추가함으로써 커서를 이동
+
+	elif command[0] == 'D':
+		if st2:
+			st1.append(st2.pop())
+
+	elif command[0] == 'B':
+		if st1:
+			st1.pop()
+
+	else:
+		st1.append(command[1])
+
+st1.extend(reversed(st2))
+print(''.join(st1))
 '''
