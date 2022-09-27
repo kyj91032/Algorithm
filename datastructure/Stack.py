@@ -83,4 +83,27 @@ for _ in range(int(sys.stdin.readline())):
 
 st1.extend(reversed(st2))
 print(''.join(st1))
+
+
+# 10799 쇠막대기 -> 대칭성? 을 스택으로 해결
+
+s = list(input())
+
+now = []
+total = 0
+
+for i in range(len(s)):
+	if s[i] == '(':
+		if s[i+1] == ')':
+			total += len(now)
+		else:
+			now.append('(')
+	if s[i] == ')':
+		if s[i-1] == '(':
+			continue
+		else:
+			now.pop()
+			total += 1
+
+print(total)
 '''
