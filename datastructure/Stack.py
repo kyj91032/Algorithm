@@ -108,7 +108,7 @@ for i in range(len(s)):
 print(total)
 
 
-# 17298 오큰수 -> 시간복잡도를 해결.. 일단 계속 중복되는 확인이 있어서 줄일 수 있을거같았음. 그 방법으로 스택을 이용.
+# 17298 오큰수 -> 시간복잡도를 해결.. 일단 계속 중복되는 탐색 있어서 줄일 수 있을거같았음. 그 방법으로 스택을 이용.
 
 import sys
 n = int(input())
@@ -120,7 +120,7 @@ stack = []
 stack.append(0)
 for i in range(1, n):
     while stack and A[stack[-1]] < A[i]: # 기본 2개씩 대소비교 하는데, 오큰수가 아닌경우 pop을 하지 않아서 스택에 남긴다. 그 후 다음 2개를 비교할때 while stack:을 통해
-	     # 재차 확인할 수 있도록 함.
+	     # 재차 확인할 수 있도록 함. 결국 
         answer[stack.pop()] = A[i]
     stack.append(i)
 
