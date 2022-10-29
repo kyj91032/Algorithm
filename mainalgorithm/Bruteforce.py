@@ -1433,9 +1433,48 @@ int main() {
     cin >> n;
     
     for (int i=5; i<=n; i*=5) # - 1~N까지의 숫자에서  5^1 = 5의 배수, 5^2 = 25의 배수, 5^3 = 125의 배수, 5^k이 n보다 작을 때 까지 이들의 개수를 구함.
-			      # 이 개수는 N / 5^1 + N / 5^2 + N / 5^3 + ... 이런 방식으로 구할 수 있음.  
+			      # 이 개수는 N / 5^1 + N / 5^2 + N / 5^3 + ... 이런 방식으로 구할 수 있음.
         ans += n/i;
         
     cout << ans << '\n';
+}
+
+
+# 2004 조합 0의 개수 -> 1671의 일반화. 
+
+#include <iostream>
+#include <cstring>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+ 
+long long func(int n, int x)
+{
+	int num = 0;
+ 
+	for (long long i = x; n / i >= 1; i *= x) {
+		num += n / i;
+	}
+ 
+	return num;
+}
+ 
+int main(int argc, char *argv[])
+{
+	int n, m;
+ 
+	long long five = 0;
+	long long two = 0;
+	
+	cin >> n;
+	cin >> m;
+ 
+	five = func(n, 5) - func(n - m, 5) - func(m, 5);
+	two = func(n, 2) - func(n - m, 2) - func(m, 2);
+ 
+	cout << min(five, two) << endl;
+ 
+	return 0;
 }
 '''
