@@ -94,7 +94,7 @@ target = int(input())
 n = int(input())
 broken = list(map(int, input().split()))
 
-min_count = abs(100 - target) # 현재 채널에서 + 혹은 -만 사용하여 이동하는 경우. 최댓값을 초기값으로 설정.
+min_count = abs(target - 100) # 현재 채널에서 + 혹은 -만 사용하여 이동하는 경우. 최댓값을 초기값으로 설정.
 
 for nums in range(1000001): # 고장난 채널을 제외한 모든 채널 탐색
     nums = str(nums)
