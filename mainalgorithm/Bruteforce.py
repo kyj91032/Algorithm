@@ -86,7 +86,7 @@ for _ in range(T):
 
 
 
-# 1107 리모컨
+# 1107 리모컨 -> 최대최소갱신, 
 
 import sys
 input = sys.stdin.readline
