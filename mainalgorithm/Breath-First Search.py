@@ -360,7 +360,7 @@ def bfs(x, y):
 bfs(0, 0)
 
 
-# 16197 두 동전 - 방문처리가 필요 없음. 다시 돌아가는 탐색을 또 해도 count<10이라 시간복잡도 만족
+# 16197 두 동전 - 방문처리가 필요 없음. 다시 돌아가는 탐색을 또 해도 count<10이라 시간복잡도 만족, 두개의 좌표에 대한 노드 (x1, y1, x2, y2)
 
 from collections import deque
 import sys
