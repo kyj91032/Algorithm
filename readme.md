@@ -4,6 +4,7 @@
   - Stack
   - Queue
   - Set
+  - Graph
 
 - Main Algorithm
   - Bruteforce
