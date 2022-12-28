@@ -1,5 +1,4 @@
 # 백트래킹: 완전 탐색(brute force)을 재귀적(recursive)으로 수행할 때, 가지치기를 활용하여 시간복잡도를 줄이는 것을 백트래킹(back tracking)이라고 한다.
-# (In the first place, DFS is about graph..)
 
 # 백트래킹의 기본 동작 과정
 
