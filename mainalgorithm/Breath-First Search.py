@@ -33,7 +33,6 @@ def bfs(graph, start, visited):
         queue.append(i) # 큐에 넣으며
         visited[i] = True # 탐색 처리를 한다.
 
-+ dfs는 재귀함수로 구현을 하기 떄문에 순서를 어떻게 하느냐에 따라 방법이 나뉠 수 있지만, bfs는 그냥 정해진 순서가 있다.
 
 
 # 2178 미로 탐색 - 격자그래프, bfs의 탐색 경로 정의
