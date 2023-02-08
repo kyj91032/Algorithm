@@ -217,6 +217,36 @@ def bfs(start, end):
 			break
 bfs(n, k)
 
+# 10164 격자상의 경로
+
+import sys
+input = sys.stdin.readline
+n,m,k = map(int,input().split())
+
+def find(n,m) :
+    dp = [[0]*(m+1)]*(n+1)
+
+    for i in range(1,n+1) :
+        for j in range(1,m+1) :
+            if i == 1 and j == 1 :
+                dp[i][j] = 1
+                continue
+            dp[i][j] = dp[i-1][j] + dp[i][j-1]
+    return dp[n][m]
+
+if k == 0 :
+    print(find(n,m))
+else :
+    dotN1 = (k-1)//m + 1
+    dotM1 = k - (dotN1-1)*m
+    dotN2 = n - (dotN1-1)
+    dotM2 = m - (dotM1-1)
+
+    first = find(dotN1,dotM1)
+    second = find(dotN2,dotM2)
+
+    print(first*second)
+
 
 # 13913 숨바꼭질4 - bfs에서의 경로 출력. 모든 노드가 자신의 이전 노드만 기억하면 됨
 
