@@ -1,16 +1,19 @@
-# Algorithm
+# 알고리즘, 코딩테스트 학습 기록
 
-- Data Structure
+## 주요 알고리즘 학습
 
-  - Stack
-  - Queue
-  - Set
-  - Graph
+- 반복과 재귀함수
+- 완전 탐색
+- 그리디
+- 백트래킹
+- 다이내믹 프로그래밍
+- 깊이 우선 탐색
+- 너비 우선 탐색
+- 다익스트라, 프로이드 워셜
+- 기타 알고리즘
 
-- Main Algorithm
-  - Iteraion and Recursive
-  - Bruteforce
-  - Backtracking
-  - Dynamic programming
-  - Depth-First Search
-  - Breath-First Search
+## 문제 풀이 기록
+
+백준 코딩 테스트 준비 - 기초, 연습 문제들을 기록하고 정리
+
+문제집 링크 : https://www.acmicpc.net/workbook/codeplus
