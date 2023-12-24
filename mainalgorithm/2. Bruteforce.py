@@ -1,13 +1,10 @@
 # 브루트포스 알고리즘: 완전 탐색
 
-# 완전 탐색의 기본 동작 과정
+# 완전 탐색의 구현
 
-1. 처음부터 끝까지 모두 확인(탐색)한다. for (1 ~ 3차원 선형탐색, 재귀, 백트래킹, 최대최소갱신, 이동경로 정의, 순열과 조합, 0과1 테이블)
-2. 부분 문제를 해결한다. def
-+ 예시를 가지고 먼저 구현한 뒤 일반화 해나가기
-
-#
-
+# 1. 처음부터 끝까지 모두 탐색한다. ex) for (1 ~ 3차원 선형탐색, 재귀함수, 백트래킹, 최대최소갱신, 이동경로 정의, 순열과 조합, 0과1 테이블 정의)
+# 2. 탐색하지 않아도 되는 부분을 찾아 if문 처리 등
+# 3. 부분 문제를 해결한다. def 등으로 따로 함수를 만들어서 해결한다.
 
 
 # 3085 사탕게임 -> 부분 문제 해결 후 2차원 탐색
@@ -195,7 +192,7 @@ tetromino = [[[0, 1], [0, 2], [0, 3]], [[1, 0], [2, 0], [3, 0]], # 테트로미�
 [[1, 0], [1, -1], [2, -1]], [[0, 1], [-1, 1], [-1, 2]],
 [[0, 1], [1, 1], [1, 2]], [[0, 1], [0, 2], [1, 1]],
 [[1, 0], [1, 1], [2, 0]], [[1, 0], [1, -1], [2, 0]],
-[[0, 1], [0, 2], [-1, 1]]
+[[0, 1], [0, 2], [-1, 1]]]
 
 for i in range(n):
     s.append(list(map(int, input().split())))
@@ -274,7 +271,7 @@ def go(day, total):
     go(day + s[day][0], total + s[day][1]) # 이번 day일을 처리한다, 기간도 점프한다! # 모든 경우 재귀 호출해서 M값 최신화하기 (최대최소 bf + 재귀적 구현)
 
 go(0, 0) # day는 0, total도 0부터 시작.
-print(ans)
+print(M)
 
 
 
@@ -340,30 +337,30 @@ for _ in range(n):
 
 ans = []
 
-for i range(1 << n*m): # 2의 n * m승 가지의 경우의 수 모두 확인
-	total = 0
-	for row in range(n):
-		rowsum = 0
-		for col in range(m):
-			idx = row * m + col # idx는 주어진 배열의 번호
-			if i & (1 << idx) != 0: # 대충 알겠는데, 1. 이렇게 확인하면 모든 경우의 수가 확인되는가? 2. 이 풀이를 떠올릴만한 개연성이 있나?
-				rowsum = rowsum * 10 + paper[row][col]
-			else:
-				total += rowsum
-				rowsum = 0
-		total += rowsum
+for i in range(1 << n*m): # 2의 n * m승 가지의 경우의 수 모두 확인
+    total = 0
+    for row in range(n):
+        rowsum = 0
+        for col in range(m):
+            idx = row * m + col # idx는 주어진 배열의 번호
+            if i & (1 << idx) != 0: # 대충 알겠는데, 1. 이렇게 확인하면 모든 경우의 수가 확인되는가? 2. 이 풀이를 떠올릴만한 개연성이 있나?
+                rowsum = rowsum * 10 + paper[row][col]
+            else:
+                total += rowsum
+                rowsum = 0  
+            total += rowsum
 
-	for col in range(m):
-		colsum = 0
-		for row in range(n):
-			idx = row * m + col
-			if i & (1 << idx) == 0:
-				colsum = colsum * 10 + paper[row][col]
-			else:
-				total += colsum
-				colsum = 0
-		total += colsum
-	ans.append(total)
+    for col in range(m):
+        colsum = 0
+        for row in range(n):
+            idx = row * m + col
+            if i & (1 << idx) == 0:
+                colsum = colsum * 10 + paper[row][col]
+            else:
+                total += colsum
+                colsum = 0
+                total += colsum
+    ans.append(total)
 
 print(max(ans))
 
@@ -532,11 +529,11 @@ for n in NUMBERS:
 
 # 14499 주사위 굴리기 - 어떻게 주사위가 구르는 것을 구현하지?? -> 
 
-인덱스 0부터 5까지 각각의 인덱스가 위쪽, 뒤쪽, 오른쪽, 왼쪽, 앞쪽, 바닥 이라고 했을 때
-[1, 2, 3, 4, 5, 6] => [3, 2, 6, 1, 5, 4] 로 변했음을 알 수 있다
-마찬가지로 다른 방향으로 굴렸을 때에 대해서도 어떻게 변했는지를 알면 이 문제를 다 풀었다고 볼 수 있다.
-이러한 규칙을 turn함수에 정의를 해놓고
-굴려야 하는 타이밍에 함수를 실행시키면 된다.
+# 인덱스 0부터 5까지 각각의 인덱스가 위쪽, 뒤쪽, 오른쪽, 왼쪽, 앞쪽, 바닥 이라고 했을 때
+# [1, 2, 3, 4, 5, 6] => [3, 2, 6, 1, 5, 4] 로 변했음을 알 수 있다
+# 마찬가지로 다른 방향으로 굴렸을 때에 대해서도 어떻게 변했는지를 알면 이 문제를 다 풀었다고 볼 수 있다.
+# 이러한 규칙을 turn함수에 정의를 해놓고
+# 굴려야 하는 타이밍에 함수를 실행시키면 된다.
 
 n, m, x, y, k = map(int, input().split())
 
@@ -589,13 +586,13 @@ for i in comm:
 import sys
 
 def pos(now):
-    """
-    1. 차이가 1만 경사로 설치 가능
-    2. 현재 높이 < 이전 높이, 경사로 설치를 위해 오른쪽 스캔 (낮은 곳에 경사로 설치)
-    3. 현재 높이 > 이전 높이, 경사로 설치를 위해 왼쪽 스캔 (낮은 곳에 경사로 설치)
-    :param i:
-    :return:
-    """
+    
+    # 1. 차이가 1만 경사로 설치 가능
+    # 2. 현재 높이 < 이전 높이, 경사로 설치를 위해 오른쪽 스캔 (낮은 곳에 경사로 설치)
+    # 3. 현재 높이 > 이전 높이, 경사로 설치를 위해 왼쪽 스캔 (낮은 곳에 경사로 설치)
+    # :param i:
+    # :return:
+    
     for j in range(1, n):
         if abs(now[j] - now[j - 1]) > 1:   # 1. 차이가 1만 가능
             return False
@@ -957,158 +954,6 @@ print(no + e + w + s + t + b)
 
 # 1917 정육면체 전개도 -> 첫 1을 밑면으로 시작해서 주사위를 dfs로 굴리면서(1은 연결되어 있음), dice의 모든 면이 1로 바뀌면, 전개도가 맞는거고 0이 하나라도 있으면, 전개도가 틀린 것.
 
-import java.util.*;
-import java.io.*;
-
-public class Main{
-
-    public static void main(String[] args) throws Exception{
-        Solve solve = new Solve();
-        solve.run();
-    }
-
-}
-
-class Solve{
-
-    private static class Cube{
-
-        private int[] side;
-        private int[] temp;
-        private int foldCount;
-
-        public Cube(){
-            temp = new int[7];
-            side = new int[7];
-        }
-
-        public boolean cubeCheck(){
-            if(foldCount > 6) return false;
-            for(int i = 1; i <= 6; i++) if(side[i] == 0) return false;
-            return true;
-        }
-
-        public void setCube(int side){
-            foldCount++;
-            this.side[1] = side;
-        }
-
-        public void changeSide(int dir){
-            if(dir == 1) doLeft();
-            else if(dir == 2) doRight();
-            else if(dir == 3) doDown();
-            else if(dir == 4) doTop();
-            tempToSide();
-        }
-
-        // 모든 변경 위치 초기화
-
-        private void sideToTemp(){
-            for(int i = 0; i <= 6; i++) temp[i] = side[i];
-        }
-
-        private void tempToSide(){
-            for(int i = 0; i <= 6; i++) side[i] = temp[i];
-        }
-
-        private void doDown(){
-            temp[1] = side[4];
-            temp[4] = side[6];
-            temp[5] = side[1];
-            temp[6] = side[5];
-            temp[2] = side[2];
-            temp[3] = side[3];
-        }
-
-        private void doTop(){
-            temp[1] = side[5];
-            temp[4] = side[1];
-            temp[5] = side[6];
-            temp[6] = side[4];
-            temp[2] = side[2];
-            temp[3] = side[3];
-        }
-
-        private void doRight(){
-            temp[1] = side[2];
-            temp[2] = side[6];
-            temp[3] = side[1];
-            temp[6] = side[3];
-            temp[4] = side[4];
-            temp[5] = side[5];
-        }
-
-        private void doLeft(){
-            temp[1] = side[3];
-            temp[2] = side[1];
-            temp[3] = side[6];
-            temp[6] = side[2];
-            temp[4] = side[4];
-            temp[5] = side[5];
-        }
-
-    }
-
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private String[] read;
-    private int[] dy = {0, 0, 0, 1, -1};
-    private int[] dx = {0, 1, -1, 0, 0};
-    private int[] reverseDir = {0, 2, 1, 4, 3};
-    private boolean[][] check;
-    private int side;
-
-    public void run(){
-        for(int i = 0; i < 3; i++) System.out.println(validateCube(getArr()));
-    }
-
-    private String validateCube(int[][] arr){
-        int sy = 0, sx = 0;
-        for(int y = 0; y < 6; y++){
-            for(int x = 0; x < 6; x++){
-                if(arr[y][x] == 1){
-                    sy = y;
-                    sx = x;
-                    break;
-                }
-            }
-        }
-        Solve.Cube cube = new Solve.Cube();
-        validateCubeOperate(arr, cube, sy, sx);
-        if(!cube.cubeCheck()) return "no";
-        return "yes";
-    }
-
-    private void validateCubeOperate(int[][] arr, Cube cube, int y, int x){
-        side++;
-        cube.setCube(side);
-        check[y][x] = true;
-        for(int i = 1; i <= 4; i++){
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if(outOfBounds(ny, nx) || check[ny][nx] || arr[ny][nx] == 0) continue;
-            cube.changeSide(i); // 정방향
-            validateCubeOperate(arr, cube, ny, nx);
-            cube.changeSide(reverseDir[i]); // 역방향으로 되돌림
-        }
-    }
-
-    private boolean outOfBounds(int y, int x){
-        return (y >= 6 || x >= 6 || y < 0 || x < 0);
-    }
-
-    private int[][] getArr(){
-        int[][] ret = new int[10][10];
-        check = new boolean[10][10];
-        for(int i = 0; i < 6; i++){
-            try{
-                read = br.readLine().split(" ");
-            } catch (IOException IOE) {}
-            for(int j = 0; j < 6; j++) ret[i][j] = Integer.parseInt(read[j]);
-        }
-        return ret;
-    }
-
-}
 
 
 # 16967 배열 복원하기 -> 분류해서 해결
@@ -1149,234 +994,6 @@ for i in range(h):
 
 # 20327 배열 돌리기6 -> 어떻게 분할해서 처리할건지.. 5 6 7 8번 연산은 1 2 3 4의 연산을 작은 2차원 리스트에서 연산을 다시 함으로서 만들 수 있음.
 
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <set>
-#include <unordered_map>
-#include <stack>
-#include <queue>
-#include <vector>
-#include <algorithm>
-#define FIRST cin.tie(NULL); cout.tie(NULL); ios::sync_with_stdio(false);
-#define MAX 150
-#define INF 1e9
-
-using namespace std;
-int N, Q;
-int A_Size;
-int A[MAX][MAX];
-
-void First_Operation(int L) {
-	int Cnt = 0;
-	int tmp[MAX][MAX];
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			tmp[i][j] = A[i][j];
-		}
-	}
-	for (int i = 0; i < A_Size; i += L) {
-		for (int j = 0; j < A_Size; j += L) {
-			int Y = i;
-			int X = j;
-			for (int k = Y; k < (Y + L); k++) {
-				for (int l = X; l < (X + L); l++) {
-					A[Y + L - 1 - k + (L * Cnt)][l] = tmp[k][l];
-				}
-			}
-		}
-		Cnt++;
-		/*
-			1번 예제에서 (2, 0)을 좌우 반전하면 (3, 0)이 되는데,
-			A[(Y + L - 1) - k][l] = (1, 0)이 되므로, L을 1번 더해주어야
-			(3, 0)이 된다. 이 L을 몇 번 더할 건지는 Cnt라는 변수가 정해준다.
-		*/
-	}
-}
-
-void Second_Operation(int L) {
-	int Cnt = 0;
-	int tmp[MAX][MAX];
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			tmp[i][j] = A[i][j];
-		}
-	}
-	for (int i = 0; i < A_Size; i += L) {
-		for (int j = 0; j < A_Size; j += L) {
-			int Y = i;
-			int X = j;
-			for (int k = Y; k < (Y + L); k++) {
-				for (int l = X; l < (X + L); l++) {
-					A[k][X + L - 1 - l + (L * Cnt)] = tmp[k][l];
-				}
-			}
-			Cnt++;
-		}
-		Cnt = 0;
-	}
-}
-
-void Third_Operation(int L) {
-	int R = 0, C = 0, Cnt = 0;
-	int tmp[MAX][MAX];
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			tmp[i][j] = A[i][j];
-		}
-	}
-	for (int i = 0; i < A_Size; i += L) {
-		for (int j = 0; j < A_Size; j += L) {
-			int Y = i;
-			int X = j;
-			for (int k = Y; k < (Y + L); k++) {
-				for (int l = X; l < (X + L); l++) {
-					A[l - (L * R) + (L * Cnt)][Y + L - 1 - k + (L * C)] = tmp[k][l];
-				}
-			}
-			R++;
-			C++;
-		}
-		Cnt++;
-		R = 0;
-		C = 0;
-		/*
-			마찬가지로 R, C라는 변수를 이용해서 범위 안에서만 회전하도록 해준다.
-		*/
-	}
-}
-
-void Fourth_Operation(int L) {
-	int R = 0, C = 0, Cnt = 0;
-	int tmp[MAX][MAX];
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			tmp[i][j] = A[i][j];
-		}
-	}
-	for (int i = 0; i < A_Size; i += L) {
-		for (int j = 0; j < A_Size; j += L) {
-			int Y = i;
-			int X = j;
-			for (int k = Y; k < (Y + L); k++) {
-				for (int l = X; l < (X + L); l++) {
-					A[X + L - 1 - l + (L * R)][k + (L * C) - (L * Cnt)] = tmp[k][l];
-				}
-			}
-			C++;
-		}
-		Cnt++;
-		R++;
-		C = 0;
-	}
-}
-
-void Fifth_Operation(int L) {
-	First_Operation(A_Size); // 전체를 상하반전
-	First_Operation(L); // 이후 부분만 다시 상하반전시킨다.
-	// 결과적으로 부분을 유지한 채로 전체가 상하반전된다.
-}
-
-void Sixth_Operation(int L) {
-	Second_Operation(A_Size); // 전체를 좌우반전
-	Second_Operation(L); // 이후 부분만 다시 좌우반전시킨다.
-	// 결과적으로 부분을 유지한 채로 전체가 좌우반전된다.
-}
-
-void Seventh_Operation(int L) {
-	Third_Operation(A_Size); // 전체를 시계방향 90도 회전
-	Fourth_Operation(L); // 이후 부분만 다시 반시계 방향으로 90도 회전
-	// 결과적으로 부분을 유지한 채로 전체가 시계방향으로 90도 회전된다.
-}
-
-void Eighth_Operation(int L) {
-	Fourth_Operation(A_Size); // 전체를 반시계방향 90도 회전
-	Third_Operation(L); // 이후 부분만 다시 시계 방향으로 90도 회전
-	// 결과적으로 부분을 유지한 채로 전체가 반시계방향으로 90도 회전된다.
-}
-
-int main() {
-	FIRST
-	cin >> N >> Q;
-	A_Size = (1 << N);
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			cin >> A[i][j];
-		}
-	}
-	for (int i = 0; i < Q; i++) {
-		int K, L;
-		cin >> K >> L;
-		int Len = (1 << L);
-		if (K == 1) {
-			First_Operation(Len);
-		}
-		else if (K == 2) {
-			Second_Operation(Len);
-		}
-		else if (K == 3) {
-			Third_Operation(Len);
-		}
-		else if (K == 4) {
-			Fourth_Operation(Len);
-		}
-		else if (K == 5) {
-			Fifth_Operation(Len);
-		}
-		else if (K == 6) {
-			Sixth_Operation(Len);
-		}
-		else if (K == 7) {
-			Seventh_Operation(Len);
-		}
-		else if (K == 8) {
-			Eighth_Operation(Len);
-		}
-	}
-	for (int i = 0; i < A_Size; i++) {
-		for (int j = 0; j < A_Size; j++) {
-			cout << A[i][j] << " ";
-		}
-		cout << "\n";
-	}
-
-	return 0;
-}
-
-
-
-# 20055 컨베이어 벨트 위의 로봇 -> 분할하여 해결, 자료구조의 활용. 굳이 리스트를 사용할 필요 없이, deque(queue)을 사용한다
-
-import sys
-input = sys.stdin.readline
-from collections import deque
-
-n, k = map(int, input().split())
-belt = deque(list(map(int, input().split())))
-robot = deque([0]*n)
-res = 0
-
-while 1:
-    belt.rotate(1)
-    robot.rotate(1)
-    robot[-1]=0 #로봇이 내려가는 부분이니 0
-
-    if sum(robot): #로봇이 존재하면
-        for i in range(n-2, -1, -1): #로봇 내려가는 부분 인덱스 i-1 이므로 그 전인 i-2부터 (먼저 올라간 로봇부터)
-            if robot[i] == 1 and robot[i+1] == 0 and belt[i+1]>=1:
-                robot[i+1] = 1
-                robot[i] = 0
-                belt[i+1] -= 1
-        robot[-1]=0 #이 부분도 로봇 out -> 0임
-
-    if robot[0] == 0 and belt[0]>=1:
-        robot[0] = 1
-        belt[0] -= 1
-    res += 1
-    if belt.count(0) >= k:
-        break
-
-print(res)
 
 
 # 17413 단어 뒤집기2 -> 단어를 어떻게 부분 뒤집기 할건가.. 인덱싱과 temp로
@@ -1393,16 +1010,14 @@ while i < len(word):
         while word[i] != ">":      # 닫힌 괄호를 만날 때 까지
             i += 1 
         i += 1               # 닫힌 괄호를 만난 후 인덱스를 하나 증가시킨다
-
-	elif word[i].isalnum(): # 숫자나 알파벳을 만나면
+    elif word[i].isalnum(): # 숫자나 알파벳을 만나면
         start = i
         while i < len(word) and word[i].isalnum():
             i+=1
         tmp = word[start:i] # 숫자,알파벳 범위에 있는 것들을
         tmp.reverse()       # 뒤집는다
         word[start:i] = tmp
-
-	else:                   # 괄호도 아니고 알파,숫자도 아닌것 = 공백
+    else:                   # 괄호도 아니고 알파,숫자도 아닌것 = 공백
         i+=1                # 그냥 증가시킨다
 
 print("".join(word))
@@ -1411,58 +1026,5 @@ print("".join(word))
 
 # 1676 팩토리얼 0의 개수 -> 팩토리얼의 값을 구하는 것 X, 5^n의 배수들의 개수의 누적 합으로 5의 배수 개수를 구한다. 5의 배수 개수가 0의 개수
 
-#include <iostream>
-using namespace std;
-
-int main() {
-    int ans = 0;
-
-    int n;
-    cin >> n;
-
-    for (int i=5; i<=n; i*=5) # - 1~N까지의 숫자에서  5^1 = 5의 배수, 5^2 = 25의 배수, 5^3 = 125의 배수, 5^k이 n보다 작을 때 까지 이들의 개수를 구함.
-			      # 이 개수는 N / 5^1 + N / 5^2 + N / 5^3 + ... 이런 방식으로 구할 수 있음.
-        ans += n/i;
-
-    cout << ans << '\n';
-}
-
 
 # 2004 조합 0의 개수 -> 1671의 일반화. 
-
-#include <iostream>
-#include <cstring>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-
-long long func(int n, int x)
-{
-	int num = 0;
-
-	for (long long i = x; n / i >= 1; i *= x) {
-		num += n / i;
-	}
-
-	return num;
-}
-
-int main(int argc, char *argv[])
-{
-	int n, m;
-
-	long long five = 0;
-	long long two = 0;
-
-	cin >> n;
-	cin >> m;
-
-	five = func(n, 5) - func(n - m, 5) - func(m, 5);
-	two = func(n, 2) - func(n - m, 2) - func(m, 2);
-
-	cout << min(five, two) << endl;
-
-	return 0;
-}
-'''
