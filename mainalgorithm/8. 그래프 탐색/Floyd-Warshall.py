@@ -31,21 +31,3 @@ for k in range(1, n + 1): # 모든 노드 k(1 ~ n)에 대하여
       graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b]) # n-1P2(= nP2)인 모든 조합을 점화식에 따라(다이나믹 프로그래밍) 최단 거리를 인접 행렬 graph에 갱신
 
 
-      
-# 11403 경로 찾기
-
-N = int(input())
-graph = []
-for _ in range(N):
-    graph.append(list(map(int, input().split())))
-    
-for k in range(N):
-    for i in range(N):
-        for j in range(N): 
-            if graph[i][j] == 1 or (graph[i][k] == 1 and graph[k][j] == 1): # 최단거리 갱신이 아닌 모든 경로에서 모든 경로 갈 수 있는지 여부 확인
-                graph[i][j] = 1
-                
-for row in graph:
-    for col in row:
-        print(col, end = " ")
-    print()

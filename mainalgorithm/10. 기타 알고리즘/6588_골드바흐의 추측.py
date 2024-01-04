@@ -1,6 +1,5 @@
 # 소수 판별 알고리즘
 
-# 6588번 골드바흐의 추측
 import sys
 import math
 input = sys.stdin.readline
