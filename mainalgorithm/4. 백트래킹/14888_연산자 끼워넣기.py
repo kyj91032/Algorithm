@@ -37,3 +37,33 @@ for perm in set(permutations(operators)): # set()으로 중복 제거
 print(max_result)
 print(min_result)
 
+
+# 재귀함수를 이용한 풀이
+n = int(input())
+a = list(map(int, input().split()))
+add, subtract, multiply, divide = map(int, input().split())
+
+max_result = float('-inf')
+min_result = float('inf')
+
+def calculate(index, result, add, subtract, multiply, divide):
+    global max_result, min_result # 전역변수로 선언하여 함수 호출 간에 값을 공유(유지)할 수 있음
+
+    if index == n:
+        max_result = max(max_result, result)
+        min_result = min(min_result, result)
+        return
+
+    if add > 0:
+        calculate(index + 1, result + a[index], add - 1, subtract, multiply, divide)
+    if subtract > 0:
+        calculate(index + 1, result - a[index], add, subtract - 1, multiply, divide)
+    if multiply > 0:
+        calculate(index + 1, result * a[index], add, subtract, multiply - 1, divide)
+    if divide > 0 and a[index] != 0:
+        calculate(index + 1, int(result / a[index]), add, subtract, multiply, divide - 1)
+
+
+calculate(1, a[0], add, subtract, multiply, divide)
+print(max_result)
+print(min_result)

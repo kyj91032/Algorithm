@@ -1,5 +1,3 @@
-
-
 # 15654 n과 m (5) - 리스트의 원소 중에 순열
 
 n, m = map(int, input().split())
@@ -21,3 +19,18 @@ def rec(): # bruteforce 인데 반복으로 안되서 재귀로 접근.
             rec() # 재귀 호출
             s.pop()
 rec()
+
+
+# itertools를 사용한 풀이
+
+from itertools import permutations
+
+n, m = map(int, input().split())
+lst = list(map(int, input().split()))
+
+lst.sort()  # 정렬된 리스트 추가
+
+perms = permutations(lst, m)
+
+for perm in perms:
+    print(' '.join(map(str, perm)))

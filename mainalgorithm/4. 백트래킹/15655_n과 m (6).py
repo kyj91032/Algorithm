@@ -1,5 +1,3 @@
-
-
 # 15655 n과 m (6) - 리스트의 원소 중에 오름차순 순열
 
 n, m = map(int, input().split())
@@ -21,3 +19,18 @@ def rec(start): # bruteforce 인데 반복으로 안되서 재귀로 접근.
             rec(list.index(i) + 1) # 재귀 호출
             s.pop()
 rec(0)
+
+
+# itertools를 사용한 풀이
+
+from itertools import combinations
+
+n, m = map(int, input().split())
+lst = list(map(int, input().split()))
+
+lst.sort()  # 정렬된 리스트 추가
+
+combs = combinations(lst, m)
+
+for comb in combs:
+    print(' '.join(map(str, comb)))
