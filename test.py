@@ -1,12 +1,7 @@
 
 
-n, r = map(int, input().split())
-
-a = []
-for _ in range(2**n):
-	a.append(list(map(int, input().split())))
-
-cal = []
-for _ in range(r):
-	cal.append(list(map(int, input().split())))
-
+# 시간복잡도(제한시간 1초일 때)
+# N의 범위가 500인 경우 : 시간복잡도가 O(N^3)이하의 알고리즘 설계 필요
+# N의 범위가 2,000인 경우 : 시간복잡도가 O(N^2)이하의 알고리즘 설계 필요
+# N의 범위가 100,000인 경우 : 시간복잡도가 O(NlogN)이하의 알고리즘 설계 필요
+# N의 범위가 10,000,000인 경우 : 시간복잡도가 O(N)인 알고리즘 설계 필요
