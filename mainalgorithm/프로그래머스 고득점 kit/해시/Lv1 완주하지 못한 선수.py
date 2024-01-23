@@ -1,6 +1,6 @@
 # participants와 completion의 길이는 1 이상 100,000 이하 -> O(NlogN) 이하의 알고리즘 설계 필요
 
-# 비교하는 문제 -> 정렬 혹은 Hash를 이용할 확률이 높다
+# 비교, 검색하는 문제 -> 정렬 혹은 Hash를 이용할 확률이 높다. O(N^2)을 O(NlogN) 혹은 O(N)으로 줄일 수 있다.
 
 # Sort 를 이용한 풀이
 def solution(participant, completion):
@@ -24,10 +24,8 @@ def solution(participant, completion):
     hashDict = {}
     sumHash = 0
     
-    # 1. Hash : Participant의 dictionary 만들기
-    # 2. Participant의 sum(hash) 구하기
     for part in participant:
-        hashDict[hash(part)] = part # key: hash, value: part 로 dictionary 만들기
+        hashDict[hash(part)] = part # value를 hash값으로 하는 hash map을 만들기
         sumHash += hash(part) # hash 값의 합 구하기 -> 완주하지 못한 선수의 hash 값은 이 값에서 빼면 된다
     
     # 3. completion의 sum(hash) 빼기
@@ -42,5 +40,6 @@ import collections
 def solution(participant, completion):
 
     answer = collections.Counter(participant) - collections.Counter(completion)
+    # Counter를 이용해 두 list의 차집합을 구한다. -> O(N)
     
     return list(answer.keys())[0]
