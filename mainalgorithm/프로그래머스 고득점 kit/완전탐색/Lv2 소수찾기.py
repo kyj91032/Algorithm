@@ -1,3 +1,6 @@
+# perm의 시간복잡도 : O(n!)
+# comb의 시간복잡도 : O(nCr)
+
 import math
 from itertools import permutations
 
@@ -31,4 +34,3 @@ def solution(numbers):
     
     return answer
 
-solution("011")
