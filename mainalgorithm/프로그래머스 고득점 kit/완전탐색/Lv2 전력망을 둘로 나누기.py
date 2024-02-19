@@ -1,4 +1,7 @@
+# BF + DFS/BFS
+
 # remove는 값 제거, pop은 인덱스 제거
+
 
 def solution(n, wires):
 
