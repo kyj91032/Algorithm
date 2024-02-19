@@ -1,4 +1,4 @@
-# dungeons가 8이하인 순간부터 완전탐색일 확률 높음 -> 실제로 O(n!)
+# dungeons가 8이하인 순간부터 완전탐색일 확률 높음 -> 실제로 O(n!)로 해결
 
 from itertools import permutations
 
