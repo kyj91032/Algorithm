@@ -22,16 +22,17 @@ def solution(word):
 # 재귀함수로 단어 사전 list를 만들고 인덱스를 반환하는 방법
 def solution(word):
     answer = 0
-    word_list = [] # 단어사전
+    word_list = [] # 단어사전 -> 전역변수
     words = 'AEIOU'
     
-    def dfs(cnt, w): 
-        if cnt == 5: 
+    def dfs(w):
+        if len(w) == 5: 
             return
-        for i in range(len(words)): # 순회하면서 단어사전에 추가
-            word_list.append(w + words[i])
-            dfs(cnt+1, w + words[i]) # 추가한 후 그 상태에서 다시 로직 수행. 상태 전이
+        for i in range(len(words)): # 순회하면서 
+            word_list.append(w + words[i]) # 단어사전에 추가
+            dfs(w + words[i]) # 추가한 후 그 상태(현재 문자열 필요)에서 다시 로직 수행. 상태 전이
+            # 문쟈열 길이를 넣어주는 경우가 있는데, 현재는 그냥 문자열 받고 길이 구하면되니까 필요없다.
             
-    dfs(0,"")
+    dfs("")
     
     return word_list.index(word)+1
