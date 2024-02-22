@@ -31,6 +31,7 @@ def dfs(graph, v, visited): # 탐색 그래프, 시작노드, 방문 여부 테�
 	visited[v] = True
 	for i in graph[v]:
 		if not visited[i]: # 인접 노드의 방문 여부가 재귀 조건: 방문 안한 인접 노드면 호출, 방문 한 인접노드면 호출X
+			''' if 조건 추가 가능. 바로 return 하던지 등 '''
 			dfs(graph, i, visited)
 
 def dfs(graph, v, visited):
@@ -38,7 +39,4 @@ def dfs(graph, v, visited):
 		visited[v] = True
 		for i in graph[v]:
 			dfs(graph, i, visited)
-
-
-
 

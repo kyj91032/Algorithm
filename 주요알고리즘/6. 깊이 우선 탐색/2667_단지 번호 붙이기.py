@@ -1,4 +1,3 @@
-
 # 2667 단지번호붙이기 - 격자그래프, dfs에서 깊이값 출력하기
 
 n = int(input())
@@ -7,10 +6,10 @@ graph = []
 
 for _ in range(n):
 	graph.append(list(map(int, input())))
-	# 간선 정보가 필요없는 그래프는 visited를 graph의 값으로 대신해서 쓴다. 격자그래프
+	# 간선 정보가 필요없는 그래프는 graph가 visited의 역할도 함. ex 격자그래프
 num = []
 
-def dfs(x, y):
+def dfs(x, y): # 격자그래프의 dfs는 좌표 받음
 	if x <= -1 or x >= n or y <= -1 or y >= n:
 		return False
 	if graph[x][y] == 1: # 시작 노드의 방문 여부로 dfs
