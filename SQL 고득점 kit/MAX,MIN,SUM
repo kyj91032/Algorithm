@@ -1,0 +1,20 @@
+SELECT MAX(PRICE) AS MAX_PRICE -- 최댓값 출력
+FROM PRODUCT
+
+
+SELECT MAX(DATETIME) -- 가장 최근 데이터 출력. 날짜도 min, max(최근)가 가능함
+FROM ANIMAL_INS
+
+
+SELECT *
+FROM FOOD_PRODUCT
+WHERE PRICE = (
+    SELECT MAX(PRICE) -- 가장 높은 가격의 모든 컬럼 출력 => 서브쿼리: 가장 높은 가격(인) + 모든 컬럼 출력
+    FROM FOOD_PRODUCT
+)
+
+
+SELECT COUNT(DISTINCT NAME) -- DISTINCT 중복 제거 후 count
+FROM ANIMAL_INS
+WHERE NAME IS NOT NULL
+
