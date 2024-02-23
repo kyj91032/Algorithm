@@ -16,7 +16,7 @@ def solution(tickets):
     
     def dfs(airport, path): # airport는 현재 위치, path는 지금까지 사용한 티켓들의 경로
         if len(path) == len(tickets)+1: # path가 티켓 수+1이면(모든 티켓을 사용했으면) 탐색 다했다는 뜻이므로 return : 종료조건!!!
-            answer.append(path)
+            answer.append(path) # 도착하는 모든 경우가 담긴다.
             return
         
         for idx, ticket in enumerate(tickets): # 모든 티켓을 순회하며 = 모든 노드에서 dfs를 수행
@@ -27,6 +27,6 @@ def solution(tickets):
         
     dfs("ICN", ["ICN"])
     
-    answer.sort()
+    answer.sort() # 도착하는 모든 경우를 담은 answer를 정렬
 
-    return answer[0]
+    return answer[0] # 알파벳 순서가 앞서는 경로를 리턴
