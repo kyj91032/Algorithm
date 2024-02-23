@@ -2,7 +2,7 @@ SELECT ANIMAL_OUTS.ANIMAL_ID , ANIMAL_OUTS.NAME
 FROM ANIMAL_OUTS
 LEFT JOIN ANIMAL_INS
 -- 일반적인 join -> join이 되는 경우만 출력
--- left join -> 왼쪽테이블 전체를 두고 매칭이 안되는 경우 null로 채움
+-- left join -> 왼쪽테이블 전체를 두고 오른쪽이 매칭이 안되는 경우 null로 채움
 ON ANIMAL_OUTS.ANIMAL_ID = ANIMAL_INS.ANIMAL_ID
 WHERE ANIMAL_INS.ANIMAL_ID IS NULL -- 매칭이 안되는 경우만 출력
 ORDER BY ANIMAL_OUTS.ANIMAL_ID

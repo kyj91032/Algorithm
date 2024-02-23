@@ -4,6 +4,7 @@
 itertools vs recursion
 '''
 
+# itertools를 사용한 바텀업 풀이
 from itertools import product
 
 def solution(word):
@@ -11,7 +12,7 @@ def solution(word):
     for i in range(1, 6):
         for c in product(['A', 'E', 'I', 'O', 'U'], repeat=i):
             # product는 중복순열을 만들어준다. repeat에 숫자를 넣어주면 그만큼의 길이의 중복순열을 만들어준다.
-            # 1~5까지의 길이의 중복순열을 만들어준다.
+            # 반복문까지 써서 1~5까지의 길이의 중복순열을 만들어준다.
             words.append(''.join(list(c)))
 
     words.sort()

@@ -3,7 +3,8 @@
 # Dijkstra의 구현 
 '''
 Dijkstra는 start로 시작하여 인접 노드 중 현재로서 최선의 거리인 노드 now를 확정지어 나가는 것이므로 기본적으로 그리디 알고리즘으로 분류된다.
-또한 재귀적으로 연결된 작은 문제를 반복적으로 해결함으로써 큰 문제를 해결하므로 다이나믹 프로그래밍이기도 하다. dp 테이블은 최단 거리 리스트, 점화식은 distance[w] = min(distance[w], distance[u] + weight[u][w]) 
+또한 재귀적으로 연결된 작은 문제를 반복적으로 해결함으로써 큰 문제를 해결하므로 다이나믹 프로그래밍이기도 하다.
+dp 테이블은 최단 거리 리스트, 점화식은 distance[w] = min(distance[w], distance[u] + weight[u][w])인 dp
 1. 출발 노드를 설정한다.
 2. 최단 거리 테이블을 초기화한다.
 3. 방문하지 않은 노드 중에서 최단거리가 가장 짧은 노드를 선택한다. # 선택된 노드는 최단거리 이미 확정
@@ -31,13 +32,13 @@ for _ in range(m):
 def dijkstra(start):
   q = [] # 큐 생성
   heapq.heappush(q, (0, start)) # 시작 노드로 가기 위한 최단 경로를 0으로 설정하여 시작노드를 큐에 삽입.
-  distance[start] = 0
+  distance[start] = 0 # 시작 노드로 가기 위한 최단 경로는 0으로 설정
   while q: # 큐가 빌 때까지 반복
     dist, now = heapq.heappop(q) # 최소 큐로 가장 최단거리가 짧은 노드의 정보 꺼내기
-    if distance[now] < dist: # 이미 처리된 적 있는 노드라면 무시. visited는 필요 없음
+    if distance[now] < dist: # 이미 처리된 적 있는 노드(최단거리 테이블의 값이 dist보다 작음)라면 무시. visited는 필요 없음
       continue
     for i in graph[now]: # now의 인접 노드 확인
-      cost = dist + i[1] # 인접노드까지의 비용
+      cost = dist + i[1] # 인접 노드까지의 비용 더함
       if cost < distance[i[0]]: # 더 작다면 최단 거리 테이블 갱신
         distance[i[0]] = cost
         heapq.heappush(q, (cost, i[0])) # 갱신 후 우선순위 큐에 추가. 다음 최소 큐를 위해
