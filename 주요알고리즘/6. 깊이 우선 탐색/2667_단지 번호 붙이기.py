@@ -6,7 +6,7 @@ graph = []
 
 for _ in range(n):
 	graph.append(list(map(int, input())))
-	# 간선 정보가 필요없는 그래프는 graph가 visited의 역할도 함. ex 격자그래프
+	# 간선 정보가 필요없는 그래프는 graph가 visited의 역할도 함. ex ㄴ격자그래프
 num = []
 
 def dfs(x, y): # 격자그래프의 dfs는 좌표 받음

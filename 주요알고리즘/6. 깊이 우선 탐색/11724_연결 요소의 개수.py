@@ -1,4 +1,3 @@
-
 # 11724 연결 요소의 개수 - input = sys.stdin.readline. dfs가 끝나도 visited를 계속 이용
 
 import sys

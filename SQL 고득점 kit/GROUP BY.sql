@@ -27,6 +27,7 @@ order by hour(datetime)
 SELECT FLOOR((price/10000))*10000 as PRICE_GROUP, count(*) PRODUCTS
 -- 내림 FLOOR, 올림 CEILING
 -- truncate(price/10000, 0)*10000 0자리까지 잘라내기
+-- 반올림 ROUND
 FROM PRODUCT
 GROUP BY PRICE_GROUP -- select에서 price_group이 정의되지만 group by 가능함. 
 ORDER BY PRICE_GROUP

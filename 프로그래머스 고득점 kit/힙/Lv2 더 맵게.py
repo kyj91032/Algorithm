@@ -1,4 +1,6 @@
 '''
+https://school.programmers.co.kr/learn/courses/30/lessons/42626
+
 1. 리스트로 접근
 2. 값을 넣을 때마다 정렬을 해야함
 3. 리스트 -> 힙으로 변경
