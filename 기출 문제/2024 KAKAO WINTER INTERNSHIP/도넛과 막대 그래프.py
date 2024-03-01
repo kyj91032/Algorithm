@@ -36,6 +36,6 @@ def solution(edges):
         elif  i[0] >= 2 and i[1] >=2: # 진입차수가 2이상이고 진출차수가 2이상이면
             answer[3] += 1 # 8자 그래프 카운팅
             
-    answer[1] = (indegree[answer[0]][0] - answer[2] - answer[3])
+    answer[1] = (indegree[answer[0]][0] - answer[2] - answer[3]) # 막대 그래프 카운팅 = 최초점의 진입차수(토탈 그래프 개수) - 8자그래프 - 도넛그래프
 
     return answer

@@ -49,3 +49,58 @@ HAVING COUNT(*) > 1
 ORDER BY USER_ID, PRODUCT_ID DESC
 
 
+SELECT CATEGORY, PRICE, PRODUCT_NAME
+FROM FOOD_PRODUCT
+WHERE (CATEGORY, PRICE) IN -- 서브쿼리 + IN 같이 쓰기. MAX인 것이 아닌 MAX인 "것들"을 출력
+   (SELECT CATEGORY, max(PRICE) AS PRICE
+    FROM FOOD_PRODUCT
+    WHERE CATEGORY = '과자' or  CATEGORY = '국' or   CATEGORY = '김치'or CATEGORY = '식용유'  
+    GROUP BY CATEGORY)
+ORDER BY PRICE DESC;
+
+
+SELECT CAR_ID, 
+    MAX(CASE  -- 대여중과 대여 가능이 둘다 나올 수 있는 경우 MAX를 이용해 대여중이 나오도록 함
+        WHEN date_format(start_date, "%Y-%m-%d") <= '2022-10-16' AND date_format(end_date, "%Y-%m-%d") >= '2022-10-16' THEN '대여중'
+        ELSE '대여 가능'
+    END) AS AVAILABILITY
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+group by car_id
+order by car_id desc
+
+
+-- 상품을 구매한 회원 수 집계
+SELECT YEAR(SALES_DATE) YEAR, MONTH(SALES_DATE) MONTH, GENDER, COUNT(distinct i.USER_ID) USERS -- distinct로 중복 제거 후 집계
+FROM USER_INFO as i, ONLINE_SALE as o
+WHERE i.USER_ID = o.USER_ID
+AND GENDER is not null
+GROUP BY 1,2,3
+ORDER BY 1,2,3
+
+
+SELECT AUTHOR.AUTHOR_ID, AUTHOR.AUTHOR_NAME, CATEGORY ,sum(SALES * PRICE) as TOTAL_SALES -- sum(sales) * price가 아닌 sum(sales * price)로 해야함.
+-- sum(sales)를 먼저 해버리는건 책마다 가격이 다르기 때문에 안됨
+from BOOK, AUTHOR, BOOK_SALES
+where BOOK.AUTHOR_ID = AUTHOR.AUTHOR_ID and BOOK.BOOK_ID = BOOK_SALES.BOOK_ID
+and SALES_DATE like '2022-01%'
+group by CATEGORY, AUTHOR.AUTHOR_ID
+order by AUTHOR_ID asc, CATEGORY desc
+
+
+SELECT ID, name, host_id
+from PLACES
+WHERE HOST_ID in (SELECT HOST_ID  -- '헤비유저가 등록한' + '정보' => 서브쿼리
+            FROM PLACES
+            GROUP BY 1
+            HAVING COUNT(HOST_ID)>=2)
+order by id
+
+
+SELECT CART_ID
+FROM CART_PRODUCTS
+WHERE NAME IN ('Milk', 'Yogurt') -- 두개의 상품이 있는 카트만 출력
+GROUP BY CART_ID
+HAVING COUNT(DISTINCT NAME) = 2 -- 두개의 상품이 모두 있는 카트만 출력
+ORDER BY CART_ID
+
+

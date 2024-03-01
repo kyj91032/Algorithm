@@ -47,3 +47,27 @@ FROM ANIMAL_INS
 ORDER BY DATETIME ASC
 LIMIT 1 -- 상위 n개의 레코드 출력
 
+
+-- Union 사용
+-- 두 테이블을 양식을 동일하게 하고 합치기
+SELECT * 
+FROM (
+    SELECT 
+        DATE_FORMAT(SALES_DATE,'%Y-%m-%d') AS SALES_DATE,
+        PRODUCT_ID,
+        USER_ID,
+        SALES_AMOUNT
+        FROM ONLINE_SALE
+        WHERE date_format(sales_date, "%m") = '03'
+    UNION
+    SELECT 
+        DATE_FORMAT(SALES_DATE,'%Y-%m-%d')AS SALES_DATE ,
+        PRODUCT_ID,
+        NULL AS USER_ID, -- NULL값을 넣어줘야함
+        SALES_AMOUNT
+        FROM OFFLINE_SALE
+        WHERE date_format(sales_date, "%m") = '03'
+    ) as a
+ORDER BY SALES_DATE, PRODUCT_ID, USER_ID;
+
+

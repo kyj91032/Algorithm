@@ -21,3 +21,22 @@ from PRODUCT
 group by substring(PRODUCT_CODE, 1, 2)
 
 
+SELECT ORDER_ID, PRODUCT_ID, date_format(OUT_DATE, "%Y-%m-%d") as out_date,
+    case
+    when out_date is null then '출고미정' -- =null 안됨 . is null
+    when date_format(out_date, "%m-%d") <= "05-01" then '출고완료'
+    else '출고대기'
+    end as '출고여부'
+from FOOD_ORDER
+order by order_id
+
+
+SELECT USER_ID, NICKNAME, concat(city, ' ', STREET_ADDRESS1, ' ', STREET_ADDRESS2) as 전체주소,  -- substring, concat 활용
+concat(substring(tlno, 1, 3), '-', substring(tlno, 4, 4), '-', substring(tlno, 8, 4)) as 전화번호
+from USED_GOODS_USER, USED_GOODS_BOARD
+where USED_GOODS_USER.USER_ID = USED_GOODS_BOARD.WRITER_ID
+group by USER_ID
+having count(USER_ID) >= 3
+order by USER_ID desc
+
+
