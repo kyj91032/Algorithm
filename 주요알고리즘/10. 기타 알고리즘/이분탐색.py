@@ -3,13 +3,13 @@ input의 최대길이가 지나치게 길고, 특정 값을 찾아야 하는 문
 target 값을 찾아야 하는 경우, 중간값으로 가정하고 left, right를 갱신하며 mid를 찾아나간다.
 '''
 
-def binary_search(arr, target):
+def binary_search(arr, target): # 목표값과 arr만 있으면 됨
     left, right = 0, len(arr) - 1
     
     while left <= right:
         mid = (left + right) // 2
         
-        # 중간 값이 타겟과 일치하는지 확인
+        # 중간 값이 타겟과 일치하는지 확인2
         if arr[mid] == target:
             return mid
         # 중간 값이 타겟보다 큰 경우, 오른쪽 절반 탐색
