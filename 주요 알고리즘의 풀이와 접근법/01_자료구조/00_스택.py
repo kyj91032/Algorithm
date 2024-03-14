@@ -1,4 +1,3 @@
-# https://www.acmicpc.net/problem/10828
 # https://boj-helper.vercel.app/solve/10828?language=python
 
 # 생각 과정
@@ -46,8 +45,8 @@ for ca in li:
 '''
 a 1
 b 2 4
-c 
-이런 식의 입력이 주어져도, input().split()으로 받아도 된다.
+c
+이런 식 하나, 다수의 입력이 같이 주어져도, 모두 input().split()으로 받아도 된다.
 
 파이썬에서 스택은 리스트로 구현하면 된다.
 '''
