@@ -27,18 +27,25 @@ while que:
     elem = que.popleft()
     result.append(elem[0])
     if elem[1] > 0:
-        que.rotate(-(elem[1]-1))
+        que.rotate(-(elem[1]-1)) 
+        # 여기가 -1인 이유는 
+        # k가 음수인 경우는 큐의 맨 앞 원소가 맨 뒤로 움직이기 때문에 
+        # 이전에 맨 앞 원소를 pop한 것을 고려해서 -1을 해줘야 한다.(덜 옮기기)
     elif elem[1] < 0:
-        que.rotate(-(elem[1]))
+        que.rotate(-elem[1])
+        # 여기서 -1을 안해주는 이유는
+        # k가 양수인 경우는 큐의 맨 뒤 원소가 맨 앞으로 움직이기 때문에
+        # 맨 앞 원소를 pop한 것을 고려하지 않아도 된다
     
 print(' '.join(map(str,result)))
-
 
 # 피드백 후 정리
 
 '''
-deque의 rotate()는 인자로 받은 수만큼 원소를 회전시킨다.
-하지만 k가 양수일 때는 큐가 오른쪽으로 밀리고, k가 음수일 때는 큐가 왼쪽으로 밀린다.
+1. deque의 rotate()는 인자로 받은 수만큼 원소를 회전시킨다.
+하지만 k가 양수일 때는 맨 뒤 원소가 맨 앞으로 이동하고,
+k가 음수일 때는 맨 앞 원소가 맨 뒤로 이동한다.
+
 que = deque([1,2,3,4,5])
 que.rotate(3)
 print(que) -> deque([3, 4, 5, 1, 2])
