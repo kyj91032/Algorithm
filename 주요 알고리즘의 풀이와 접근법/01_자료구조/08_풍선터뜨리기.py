@@ -45,7 +45,6 @@ print(' '.join(map(str,result)))
 1. deque의 rotate()는 인자로 받은 수만큼 원소를 회전시킨다.
 하지만 k가 양수일 때는 맨 뒤 원소가 맨 앞으로 이동하고,
 k가 음수일 때는 맨 앞 원소가 맨 뒤로 이동한다.
-
 que = deque([1,2,3,4,5])
 que.rotate(3)
 print(que) -> deque([3, 4, 5, 1, 2])
