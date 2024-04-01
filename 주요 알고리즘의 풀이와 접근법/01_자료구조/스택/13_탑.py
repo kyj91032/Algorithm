@@ -14,27 +14,27 @@
 
 # 풀이 코드
 n = int(input())
-li = list(map(int, input().split()))
+top = list(map(int, input().split()))
 
 stack = []
 answer = []
 
 for i in range(n):
     while stack:
-        if stack[-1][1] > li[i]: # 스택의 마지막 값이 현재 값보다 크면 = 수신 가능하면
-            answer.append(stack[-1][0] + 1)
-            break # 반복문 탈출
-        else: # 수신 불가능하면 가능할때까지 or 스택이 비게 될때까지 계속 pop
+        if stack[-1][1] < top[i]:
             stack.pop()
-    if not stack: # 스택이 비게 되면
+        else:
+            answer.append(stack[-1][0] + 1)
+            break
+    if not stack:
         answer.append(0)
-    stack.append([i, li[i]]) # 모두 스택에 추가하긴 추가함
+    stack.append([i, top[i]])
 
-print(" ".join(map(str, answer))) 
+print(" ".join(map(str, answer)))
 
 
 # 피드백 후 정리
 '''
-1. while queue 뿐만 아니라 while stack도 가능하다.
-2. 스택에 어떤 값을 넣고 뺄지를 정해야 한다. 여기서는 인덱스와 높이를 넣었다.
+1. while queue 뿐만 아니라 while stack도 가능하다. (stack을 순회하는 문제) stack을 이용해 가능한 탑만 순회하는 것
+2. 스택에 어떤 값을 넣고 뺄지를 정해야 한다. 
 '''
