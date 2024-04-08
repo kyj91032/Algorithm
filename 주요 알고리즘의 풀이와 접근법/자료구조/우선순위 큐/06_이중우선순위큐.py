@@ -36,7 +36,7 @@ for _ in range(T):
         op, value = input().split()
         value = int(value)
         if op == 'I':
-            if value in nums: 
+            if value in nums:
                 nums[value] += 1 # 중복 값 삽입의 경우
             else:
                 nums[value] = 1 # 최초 삽입의 경우
@@ -70,4 +70,5 @@ for _ in range(T):
 
 '''
 1. 어떤 값(종류)에 따른 개수가 매핑되면 딕셔너리를 이용하기, + 종류먄 필요하다면 집합을 이용
+2. 디테일한 구현은 틀부터 구현하고 테스트 케이스를 돌리면서 구체적인 구현을 해나가는 것이 좋다.
 '''
