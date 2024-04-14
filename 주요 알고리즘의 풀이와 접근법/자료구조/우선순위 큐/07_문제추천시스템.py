@@ -59,4 +59,5 @@ for _ in range(m):
 '''
 1. solved에 푼 문제를 기록하고, solved에 푼 문제가 있으면 최대 힙, 최소 힙에서 삭제를 해줌
 2. 현재 최대큐, 최소큐에 해당하는 top 값이 solved에 있으면(= dict에 개수 >= 1), dict -= 1 해주고, heap에서도 삭제 해줌
+3. dict에 디폴트 값을 주는 법 : defaultdict(int) -> 존재하지 않는 키에 대해서 기본값 0으로 줌
 '''

@@ -50,5 +50,6 @@ for _ in range(n):
 
 # 피드백 후 정리
 '''
-deque는 맨 앞쪽에서 appendleft, popleft, 맨 뒤쪽에서 append, pop을 할 수 있다.
+deque는 from collections import deque로 사용한다
+맨 앞쪽에서 appendleft, popleft, 맨 뒤쪽에서 append, pop을 할 수 있다.
 '''
