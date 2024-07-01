@@ -15,5 +15,3 @@
 ### 문제 풀이 기록
 
 백준 코딩 테스트 준비 - 기초, 연습 문제들을 기록하고 정리
-
-문제집 링크 : https://www.acmicpc.net/workbook/codeplus
