@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b08936d-fdda-4193-8746-e4091f1798bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/String/Main_00.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/String/Main_01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/String/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/String/Main_00.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/String/Main_00.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.JavaAlgorithm [:Main_01.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Test.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:test2.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -56,8 +56,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.33103448",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -69,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719972603456</updated>
-      <workItem from="1719972606354" duration="2933000" />
+      <workItem from="1719972606354" duration="3476000" />
     </task>
     <servers />
   </component>

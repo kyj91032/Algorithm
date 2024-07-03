@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * 11720	숫자의 합
  * 피드백 후 정리
  * 1. java에서는 input을 받을 때 BufferedReader의 readline
  * 2. String을 순회하는 방법 : for each, stream, for 가 있다.
