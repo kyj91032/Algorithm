@@ -3,13 +3,12 @@ package String;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 /**
  * 11365	!밀비 급일
  * 피드백 후 정리
  * 1. 자바에서 String 을 역으로 정렬할 때는 StringBuilder를 사용한다.
- *    new StringBuilder(text).reverse().toString(); 을 사용한다
+ *    new StringBuilder(text).reverse().toString();
  */
 
 
