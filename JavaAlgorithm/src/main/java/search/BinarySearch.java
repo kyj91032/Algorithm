@@ -2,6 +2,7 @@ package search;
 
 public class BinarySearch {
     public static void main(String[] args) {
+        // 전제 조건 : 정렬
         int[] arr = {11, 22, 33, 44, 55, 66, 77};
 
         int target = 66;

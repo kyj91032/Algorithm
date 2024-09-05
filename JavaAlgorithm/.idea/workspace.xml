@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b08936d-fdda-4193-8746-e4091f1798bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/search/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/search/FindMax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search/BinarySearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +79,7 @@
     "Gradle.JavaAlgorithm [:Main_03.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Test.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:search.BinarySearch.main()].executor": "Run",
+    "Gradle.JavaAlgorithm [:search.FindMax.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:test2.main()].executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -148,7 +144,7 @@
       <workItem from="1719972606354" duration="3825000" />
       <workItem from="1720051919181" duration="6398000" />
       <workItem from="1720761568348" duration="11046000" />
-      <workItem from="1725499910754" duration="901000" />
+      <workItem from="1725499910754" duration="3978000" />
     </task>
     <servers />
   </component>
