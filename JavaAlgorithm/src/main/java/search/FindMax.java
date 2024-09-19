@@ -24,6 +24,6 @@ public class FindMax {
     }
 
     private static int findMaxByStream(int[] arr) {
-        Arrays.stream(arr).max().ifPresent(System.out::println);
+        return Arrays.stream(arr).max().isPresent() ? Arrays.stream(arr).max().getAsInt() : 0;
     }
 }
