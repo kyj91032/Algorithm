@@ -1,11 +1,10 @@
 package search;
 
+import java.util.Arrays;
+
 public class FindMax {
     public static void main(String[] args) {
         int[] arr = {72, 45, 32, 67, 89, 12, 56, 78, 98, 23};
-
-        // stream 사용
-        // Arrays.stream(arr).max().ifPresent(System.out::println);
 
         int maximum = findMax(arr);
 
@@ -22,5 +21,9 @@ public class FindMax {
         }
 
         return max;
+    }
+
+    private static int findMaxByStream(int[] arr) {
+        Arrays.stream(arr).max().ifPresent(System.out::println);
     }
 }
