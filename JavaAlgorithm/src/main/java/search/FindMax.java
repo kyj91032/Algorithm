@@ -7,8 +7,10 @@ public class FindMax {
         int[] arr = {72, 45, 32, 67, 89, 12, 56, 78, 98, 23};
 
         int maximum = findMax(arr);
+        int maximumByStream = findMaxByStream(arr);
 
         System.out.println("최대값 : " + maximum);
+        System.out.println("최대값 : " + maximumByStream);
     }
 
     private static int findMax(int[] arr) {
