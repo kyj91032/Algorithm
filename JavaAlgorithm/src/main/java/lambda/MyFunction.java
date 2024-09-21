@@ -6,5 +6,10 @@ public interface MyFunction {
     // 2. 추상 메서드
     // 3. default 메서드
 
-    public abstract int max(int a, int b);
+    int A = 100;
+    int max(int a, int b);
+
+    default void defaultMethod() {
+        System.out.println("default method");
+    }
 }

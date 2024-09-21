@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b08936d-fdda-4193-8746-e4091f1798bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/search/FindMax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sort/InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search/BinarySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lambda/MyFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lambda/MyFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,18 +48,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "yeong0jae"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yeong0jae&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/yeong0jae/Algorithm.git",
-    "accountId": "0062b1f8-cfbc-4ace-880a-95d4c5823d81"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/yeong0jae/Algorithm.git&quot;,
+    &quot;accountId&quot;: &quot;0062b1f8-cfbc-4ace-880a-95d4c5823d81&quot;
   }
-}]]></component>
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -78,8 +80,10 @@
     "Gradle.JavaAlgorithm [:Main_02.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Main_03.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Test.main()].executor": "Run",
+    "Gradle.JavaAlgorithm [:lambda.LambdaEx2.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:search.BinarySearch.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:search.FindMax.main()].executor": "Run",
+    "Gradle.JavaAlgorithm [:sort.InsertionSort.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:test2.main()].executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -144,7 +148,9 @@
       <workItem from="1719972606354" duration="3825000" />
       <workItem from="1720051919181" duration="6398000" />
       <workItem from="1720761568348" duration="11046000" />
-      <workItem from="1725499910754" duration="3978000" />
+      <workItem from="1725499910754" duration="6362000" />
+      <workItem from="1725521961194" duration="600000" />
+      <workItem from="1726707770070" duration="6880000" />
     </task>
     <servers />
   </component>
