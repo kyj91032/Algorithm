@@ -1,7 +1,5 @@
 package constructor.main;
 
-import constructor.model.Person;
-
 public class Main {
     public static void main(String[] args) {
         Person p1 = new Person("이름입니다", 25);

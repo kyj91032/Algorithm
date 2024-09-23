@@ -1,8 +1,8 @@
-package constructor.model;
+package constructor.main;
 
 public class Person {
-    public String name;
-    public int age;
+    protected String name;
+    protected int age;
 
     public Person(String name, int age) {
         this.name = name;
