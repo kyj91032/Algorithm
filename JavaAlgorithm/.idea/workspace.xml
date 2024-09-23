@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b08936d-fdda-4193-8746-e4091f1798bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sort/InsertionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constructor/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constructor/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lambda/MyFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lambda/MyFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,7 @@
     "Gradle.JavaAlgorithm [:Main_02.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Main_03.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:Test.main()].executor": "Run",
+    "Gradle.JavaAlgorithm [:constructor.Main.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:lambda.LambdaEx2.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:search.BinarySearch.main()].executor": "Run",
     "Gradle.JavaAlgorithm [:search.FindMax.main()].executor": "Run",
@@ -151,6 +151,8 @@
       <workItem from="1725499910754" duration="6362000" />
       <workItem from="1725521961194" duration="600000" />
       <workItem from="1726707770070" duration="6880000" />
+      <workItem from="1726886419561" duration="7000" />
+      <workItem from="1727054375621" duration="7595000" />
     </task>
     <servers />
   </component>
